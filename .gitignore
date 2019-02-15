@@ -1,0 +1,7 @@
+[user]
+        name = hxrxchang
+        email = m.y.y.0326.cg@gmail.com
+[help]
+        autocorrect = 1
+[alias]
+        overwrire = push --force-with-lease
