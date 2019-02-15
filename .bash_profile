@@ -1,3 +1,4 @@
+echo 'Don't worry, yout shell is working!!'
 export PATH="$HOME/.ndenv/bin:$PATH"
 eval "$(ndenv init -)"
 
