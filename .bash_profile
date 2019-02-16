@@ -1,10 +1,15 @@
 echo 'hello Yuto!'
+
 export PATH="$HOME/.ndenv/bin:$PATH"
 eval "$(ndenv init -)"
 
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
+
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
 
 ssh-add -K ~/.ssh/id_rsa
 
