@@ -4,5 +4,5 @@
 [help]
         autocorrect = 1
 [alias]
-        overwrire = push --force-with-leas
+        overwrite = push --force-with-leas
         co = checkout
