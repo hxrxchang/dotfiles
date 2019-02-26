@@ -16,3 +16,5 @@ ssh-add -K ~/.ssh/id_rsa
 source /Library/Developer/CommandLineTools/usr/share/git-core/git-completion.bash
 
 alias readbp='source ~/.bash_profile'
+export PATH="/usr/local/opt/libiconv/bin:$PATH"
+export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
