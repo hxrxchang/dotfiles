@@ -6,3 +6,5 @@
 [alias]
         overwrite = push --force-with-leas
         co = checkout
+[core]
+	excludesfile = /Users/yuto.hara/.gitignore_global
