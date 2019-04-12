@@ -6,5 +6,6 @@
 [alias]
         overwrite = push --force-with-leas
         co = checkout
+	log1 = log --oneline
 [core]
 	excludesfile = ~/.gitignore_global

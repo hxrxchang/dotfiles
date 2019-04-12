@@ -22,5 +22,8 @@
   "[ruby]": {
     "editor.tabSize": 2
   },
+  "[python]": {
+    "editor.tabSize": 2
+  },
   "liveshare.featureSet": "insiders"
 }
