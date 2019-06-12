@@ -19,3 +19,5 @@ alias readbp='source ~/.bash_profile'
 alias checkip='ifconfig | grep "inet " | grep -v 127.0.0.1'
 export PATH="/usr/local/opt/libiconv/bin:$PATH"
 export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
+
+export DISABLE_SPRING=1
