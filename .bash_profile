@@ -2,6 +2,7 @@ echo 'hello Yuto!'
 
 export PATH="$HOME/.ndenv/bin:$PATH"
 eval "$(ndenv init -)"
+export PATH="$HOME/.yarn/bin:$PATH"
 
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
