@@ -16,6 +16,9 @@
   "[scss]": {
     "editor.tabSize": 2
   },
+  "[sass]": {
+    "editor.tabSize": 2
+  },
   "[html]": {
     "editor.tabSize": 2
   },
@@ -24,6 +27,9 @@
   },
   "[python]": {
     "editor.tabSize": 2
+  },
+  "[markdown]": {
+    "files.trimTrailingWhitespace": false
   },
   "liveshare.featureSet": "insiders"
 }
