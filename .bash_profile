@@ -1,5 +1,6 @@
 echo 'hello Yuto!'
 
+
 export PATH="$HOME/.ndenv/bin:$PATH"
 eval "$(ndenv init -)"
 
@@ -17,6 +18,8 @@ source /Library/Developer/CommandLineTools/usr/share/git-core/git-completion.bas
 
 alias readbp='source ~/.bash_profile'
 alias checkip='ifconfig | grep "inet " | grep -v 127.0.0.1'
+alias cleanbranches='git branch | grep -v "master" | grep -v "*" | xargs git branch -D'
+
 export PATH="/usr/local/opt/libiconv/bin:$PATH"
 export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
 
