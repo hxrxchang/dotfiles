@@ -26,3 +26,6 @@ export PATH="/usr/local/opt/libiconv/bin:$PATH"
 export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
 
 export DISABLE_SPRING=1
+
+export PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
+source ~/.git-prompt.sh
