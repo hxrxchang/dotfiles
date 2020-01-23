@@ -1,7 +1,7 @@
 {
   "workbench.editor.enablePreview": false,
   "editor.formatOnSave": true,
-  "window.zoomLevel": 1,
+  "window.zoomLevel": 2,
   "breadcrumbs.enabled": true,
   "files.trimTrailingWhitespace": true,
   "[typescript]": {
@@ -92,5 +92,6 @@
       "value": "#42b883"
     }
   ],
-  "git.enableSmartCommit": true
+  "git.enableSmartCommit": true,
+  "files.autoSave": "off"
 }
