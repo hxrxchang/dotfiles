@@ -92,6 +92,12 @@
       "value": "#42b883"
     }
   ],
+  "emmet.includeLanguages": {
+    "erb": "html"
+  },
   "git.enableSmartCommit": true,
-  "files.autoSave": "off"
+  "files.autoSave": "off",
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }
