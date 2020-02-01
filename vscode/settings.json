@@ -31,6 +31,9 @@
   "[python]": {
     "editor.tabSize": 2
   },
+  "[erb]": {
+    "editor.tabSize": 2
+  }
   "[markdown]": {
     "files.trimTrailingWhitespace": false
   },
