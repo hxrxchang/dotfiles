@@ -33,7 +33,7 @@
   },
   "[erb]": {
     "editor.tabSize": 2
-  }
+  },
   "[markdown]": {
     "files.trimTrailingWhitespace": false
   },
@@ -96,7 +96,9 @@
     }
   ],
   "emmet.includeLanguages": {
-    "erb": "html"
+    "erb": "html",
+    "javascript": "javascriptreact",
+    "typescript": "typescriptreact"
   },
   "git.enableSmartCommit": true,
   "files.autoSave": "off",
