@@ -1,7 +1,7 @@
 {
   "workbench.editor.enablePreview": false,
   "editor.formatOnSave": true,
-  "window.zoomLevel": 2,
+  "window.zoomLevel": 0,
   "breadcrumbs.enabled": true,
   "files.trimTrailingWhitespace": true,
   "[typescript]": {
@@ -38,7 +38,8 @@
     "files.trimTrailingWhitespace": false
   },
   "[yaml]": {
-    "editor.formatOnSave": false
+    "editor.formatOnSave": false,
+    "editor.tabSize": 2
   },
   "liveshare.featureSet": "insiders",
   "peacock.favoriteColors": [
