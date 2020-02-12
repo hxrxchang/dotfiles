@@ -38,7 +38,6 @@
     "files.trimTrailingWhitespace": false
   },
   "[yaml]": {
-    "editor.formatOnSave": false,
     "editor.tabSize": 2
   },
   "liveshare.featureSet": "insiders",
