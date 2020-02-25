@@ -7,5 +7,6 @@
         overwrite = push --force-with-leas
         co = checkout
 	log1 = log --oneline
+        b = branch --sort=authordate
 [core]
 	excludesfile = ~/.gitignore_global
