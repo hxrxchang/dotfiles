@@ -30,3 +30,5 @@ alias commit-diff='git diff HEAD~..HEAD'
 
 export PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
 source ~/.git-prompt.sh
+
+eval "$(direnv hook bash)"
