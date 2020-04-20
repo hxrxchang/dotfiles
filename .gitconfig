@@ -7,7 +7,7 @@
         overwrite = push --force-with-leas
         co = checkout
 	log1 = log --oneline
-        b = branch --sort=authordate
+        br = branch --sort=authordate
         sw = switch
         rs = restore
 [core]
