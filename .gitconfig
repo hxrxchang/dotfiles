@@ -8,5 +8,7 @@
         co = checkout
 	log1 = log --oneline
         b = branch --sort=authordate
+        sw = switch
+        rs = restore
 [core]
 	excludesfile = ~/.gitignore_global
