@@ -11,5 +11,6 @@
         sw = switch
         rs = restore
         st = status
+        chp = cherry-pick
 [core]
 	excludesfile = ~/.gitignore_global

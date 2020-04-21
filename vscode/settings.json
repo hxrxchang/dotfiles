@@ -104,5 +104,6 @@
   "files.autoSave": "off",
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  },
+  "typescript.updateImportsOnFileMove.enabled": "always"
 }
