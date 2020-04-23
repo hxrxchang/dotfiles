@@ -1,5 +1,6 @@
 echo 'hello Yuto!'
 
+export PATH="$HOME/.nodenv/bin:$PATH"
 eval "$(nodenv init -)"
 export PATH="$HOME/.yarn/bin:$PATH"
 
