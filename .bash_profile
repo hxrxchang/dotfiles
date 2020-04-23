@@ -1,5 +1,8 @@
 echo 'hello Yuto!'
 
+# for git
+export PATH="/usr/local/bin:$PATH"
+
 export PATH="$HOME/.nodenv/bin:$PATH"
 eval "$(nodenv init -)"
 export PATH="$HOME/.yarn/bin:$PATH"
@@ -32,4 +35,3 @@ export PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
 source ~/.git-prompt.sh
 
 eval "$(direnv hook bash)"
-export PATH="/usr/local/bin:$PATH"
