@@ -1,3 +1,5 @@
+[include]
+        path = .gitconfig.local
 [user]
         name = hxrxchang
         email = m.y.y.0326.cg@gmail.com
