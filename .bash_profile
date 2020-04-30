@@ -35,3 +35,6 @@ export PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
 source ~/.git-prompt.sh
 
 eval "$(direnv hook bash)"
+
+# use aws-cli by docker
+alias aws='docker run --rm -ti -v ~/.aws:/root/.aws -v $(pwd):/aws amazon/aws-cli'
