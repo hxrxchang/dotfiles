@@ -36,5 +36,3 @@ source ~/.git-prompt.sh
 
 eval "$(direnv hook bash)"
 
-# use aws-cli by docker
-alias aws='docker run --rm -ti -v ~/.aws:/root/.aws -v $(pwd):/aws amazon/aws-cli'
