@@ -36,3 +36,6 @@ source ~/.git-prompt.sh
 
 eval "$(direnv hook bash)"
 
+# catalinaでbash使っても警告させない
+export BASH_SILENCE_DEPRECATION_WARNING=1
+
