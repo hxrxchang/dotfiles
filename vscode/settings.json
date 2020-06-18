@@ -4,6 +4,7 @@
   "window.zoomLevel": 0,
   "breadcrumbs.enabled": true,
   "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
   "[typescript]": {
     "editor.tabSize": 2
   },
@@ -105,5 +106,6 @@
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "typescript.updateImportsOnFileMove.enabled": "always"
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "javascript.updateImportsOnFileMove.enabled": "always"
 }
