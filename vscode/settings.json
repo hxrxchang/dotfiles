@@ -41,6 +41,9 @@
   "[yaml]": {
     "editor.tabSize": 2
   },
+  "[terraform]": {
+    "editor.tabSize": 2
+  },
   "liveshare.featureSet": "insiders",
   "peacock.favoriteColors": [
     {
