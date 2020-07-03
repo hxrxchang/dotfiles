@@ -3,5 +3,5 @@
 ## Init
 
 ```
-sh dotfilesLink.sh
+make symlink
 ```
