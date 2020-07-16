@@ -18,7 +18,11 @@ eval "$(rbenv init -)"
 export PATH="/usr/local/opt/libiconv/bin:$PATH"
 export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
 
-export GOROOT=/usr/local/go
+export GOENV_ROOT="$HOME/.goenv"
+export PATH="$GOENV_ROOT/bin:$PATH"
+eval "$(goenv init -)"
+export PATH="$GOROOT/bin:$PATH"
+export PATH="$PATH:$GOPATH/bin"
 
 export DISABLE_SPRING=1
 
