@@ -72,9 +72,9 @@
 	<key>NSWindow Frame SharedPreferences</key>
 	<string>-2291 847 796 486 -2560 750 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 23 1440 854 0 0 1440 877 </string>
+	<string>-1920 -57 1920 1057 -1920 -57 1920 1057 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>1659 71 570 452 1440 -57 1920 1057 </string>
+	<string>-1920 -57 1920 1057 -1920 -57 1920 1057 </string>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -301,7 +301,7 @@
 			<key>Disable Window Resizing</key>
 			<true/>
 			<key>Flashing Bell</key>
-			<false/>
+			<true/>
 			<key>Foreground Color</key>
 			<dict>
 				<key>Blue Component</key>
@@ -652,7 +652,7 @@
 			<key>Shortcut</key>
 			<string></string>
 			<key>Silence Bell</key>
-			<false/>
+			<true/>
 			<key>Sync Title</key>
 			<false/>
 			<key>Tags</key>
@@ -698,9 +698,9 @@
 	<key>NoSyncFrame_SharedPreferences</key>
 	<dict>
 		<key>screenFrame</key>
-		<string>{{0, 0}, {1440, 900}}</string>
+		<string>{{-1920, -57}, {1920, 1080}}</string>
 		<key>topLeft</key>
-		<string>{365, 750}</string>
+		<string>{-1436, 683}</string>
 	</dict>
 	<key>NoSyncHaveUsedCopyMode</key>
 	<true/>
@@ -711,7 +711,11 @@
 	<key>NoSyncLastTipTime</key>
 	<real>589857873.63981295</real>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>63</integer>
+	<integer>66</integer>
+	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
+	<true/>
+	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
+	<integer>1</integer>
 	<key>NoSyncNextAnnoyanceTime</key>
 	<real>587109363.49928904</real>
 	<key>NoSyncOnboardingWindowHasBeenShown</key>
@@ -1557,7 +1561,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2020-07-15T15:50:37Z</date>
+	<date>2020-07-28T11:54:37Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SUUpdateGroupIdentifier</key>
