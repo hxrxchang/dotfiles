@@ -35,6 +35,7 @@ alias checkip='ifconfig | grep "inet " | grep -v 127.0.0.1'
 alias cleanbranches='git branch | grep -v "master" | grep -v "*" | xargs git branch -D'
 alias commit-diff='git diff HEAD~..HEAD'
 alias la='ls -la'
+alias g='git'
 
 export PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
 source ~/.git-prompt.sh
