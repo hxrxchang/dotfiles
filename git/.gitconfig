@@ -14,8 +14,8 @@
         rs = restore
         st = status
         chp = cherry-pick
-        sw = switch
-        rs = restore
+        rb = rebase
+        df = diff
 [core]
 	excludesfile = ~/.gitignore_global
 [pull]
