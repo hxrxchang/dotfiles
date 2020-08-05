@@ -16,6 +16,8 @@
         chp = cherry-pick
         rb = rebase
         df = diff
+        cm = commit
+        p = push
 [core]
 	excludesfile = ~/.gitignore_global
 [pull]
