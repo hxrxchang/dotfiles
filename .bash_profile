@@ -37,8 +37,9 @@ alias ll='ls -alF'
 # git
 alias g='git'
 alias commit-diff='git diff HEAD~..HEAD'
-alias gsw='git branch | peco | xargs git switch'
+alias gsw='git branch | peco | xargs git switch && echo xargs'
 alias cleanbranches='git branch | grep -v "master" | grep -v "*" | xargs git branch -D'
+eval "$(hub alias -s)"
 
 export PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
 source ~/.git-prompt.sh
