@@ -19,7 +19,6 @@
         cm = commit
         ps = push
         pl = pull
-        see = browse
 [core]
 	excludesfile = ~/.gitignore_global
 [pull]
