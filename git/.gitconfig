@@ -17,7 +17,7 @@
         rb = rebase
         df = diff
         cm = commit
-        ps = push
+        ps = push origin HEAD
         pl = pull
 [core]
 	excludesfile = ~/.gitignore_global
