@@ -41,6 +41,8 @@ alias gsw='git branch | peco | xargs git switch'
 alias cleanbranches='git branch | grep -v "master" | grep -v "*" | xargs git branch -D'
 alias gsee='hub browse'
 
+alias his="peco_search_history"
+
 export PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
 source ~/.git-prompt.sh
 source ~/.git-completion.bash
@@ -60,3 +62,8 @@ PROMPT_COMMAND='share_history'
 shopt -u histappend
 export HISTSIZE=2000
 
+peco_search_history() {
+    SELECTED_COMMAND=$(cat ~/.bash_history | peco)
+    echo "exec: ${SELECTED_COMMAND}"
+    eval $SELECTED_COMMAND
+}
