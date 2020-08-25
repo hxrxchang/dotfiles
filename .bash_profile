@@ -50,3 +50,13 @@ eval "$(direnv hook bash)"
 # catalinaでbash使っても警告させない
 export BASH_SILENCE_DEPRECATION_WARNING=1
 
+# terminal間で履歴共有
+function share_history {
+    history -a
+    history -c
+    history -r
+}
+PROMPT_COMMAND='share_history'
+shopt -u histappend
+export HISTSIZE=2000
+
