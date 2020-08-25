@@ -43,6 +43,7 @@ alias gsee='hub browse'
 
 export PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
 source ~/.git-prompt.sh
+source ~/.git-completion.bash
 
 eval "$(direnv hook bash)"
 
