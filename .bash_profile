@@ -40,26 +40,12 @@ export DISABLE_SPRING=1
 
 ssh-add -K ~/.ssh/id_rsa
 
-alias readbp='source ~/.bash_profile'
-alias checkip='ifconfig | grep "inet " | grep -v 127.0.0.1'
-alias ll='ls -alF'
-
-# git
-alias g='git'
-alias commit-diff='git diff HEAD~..HEAD'
-alias gsw='git branch | peco | xargs git switch'
-alias cleanbranches='git branch | grep -v "master" | grep -v "*" | xargs git branch -D'
-alias gsee='hub browse'
-
-alias his="peco_search_history"
-
 export PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
 source ~/.git-prompt.sh
 source ~/.git-completion.bash
 
 # catalinaでbash使っても警告させない
 export BASH_SILENCE_DEPRECATION_WARNING=1
-
 
 # pecoでhistory検索して実行できる関数
 peco_search_history() {
@@ -68,3 +54,17 @@ peco_search_history() {
     eval $SELECTED_COMMAND
     history -s $SELECTED_COMMAND
 }
+
+# alias
+alias readbp='source ~/.bash_profile'
+alias checkip='ifconfig | grep "inet " | grep -v 127.0.0.1'
+alias ll='ls -alF'
+
+## git
+alias g='git'
+alias commit-diff='git diff HEAD~..HEAD'
+alias gsw='git branch | peco | xargs git switch'
+alias cleanbranches='git branch | grep -v "master" | grep -v "*" | xargs git branch -D'
+alias gsee='hub browse'
+
+alias his="peco_search_history"
