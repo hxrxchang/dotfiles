@@ -68,4 +68,5 @@ peco_search_history() {
     SELECTED_COMMAND=$(tail -r ~/.bash_history | peco)
     echo "exec: ${SELECTED_COMMAND}"
     eval $SELECTED_COMMAND
+    history -s $SELECTED_COMMAND
 }
