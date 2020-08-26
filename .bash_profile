@@ -40,8 +40,6 @@ export DISABLE_SPRING=1
 
 ssh-add -K ~/.ssh/id_rsa
 
-source /Library/Developer/CommandLineTools/usr/share/git-core/git-completion.bash
-
 alias readbp='source ~/.bash_profile'
 alias checkip='ifconfig | grep "inet " | grep -v 127.0.0.1'
 alias ll='ls -alF'
