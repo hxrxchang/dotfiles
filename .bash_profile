@@ -62,6 +62,7 @@ PROMPT_COMMAND='share_history'
 shopt -u histappend
 export HISTSIZE=2000
 
+# pecoでhistory検索して実行できる関数
 peco_search_history() {
     SELECTED_COMMAND=$(tac ~/.bash_history | peco)
     echo "exec: ${SELECTED_COMMAND}"
