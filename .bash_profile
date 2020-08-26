@@ -1,5 +1,15 @@
 echo 'hello Yuto!'
 
+# terminal間で履歴共有
+function share_history {
+    history -a
+    history -c
+    history -r
+}
+PROMPT_COMMAND='share_history'
+shopt -u histappend
+export HISTSIZE=2000
+
 # for git
 export PATH="/usr/local/bin:$PATH"
 
@@ -24,6 +34,8 @@ eval "$(goenv init -)"
 export PATH="$GOROOT/bin:$PATH"
 export PATH="$PATH:$GOPATH/bin"
 
+eval "$(direnv hook bash)"
+
 export DISABLE_SPRING=1
 
 ssh-add -K ~/.ssh/id_rsa
@@ -47,20 +59,9 @@ export PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
 source ~/.git-prompt.sh
 source ~/.git-completion.bash
 
-eval "$(direnv hook bash)"
-
 # catalinaでbash使っても警告させない
 export BASH_SILENCE_DEPRECATION_WARNING=1
 
-# terminal間で履歴共有
-function share_history {
-    history -a
-    history -c
-    history -r
-}
-PROMPT_COMMAND='share_history'
-shopt -u histappend
-export HISTSIZE=2000
 
 # pecoでhistory検索して実行できる関数
 peco_search_history() {
