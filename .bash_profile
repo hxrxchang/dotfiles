@@ -63,7 +63,7 @@ shopt -u histappend
 export HISTSIZE=2000
 
 peco_search_history() {
-    SELECTED_COMMAND=$(cat ~/.bash_history | peco)
+    SELECTED_COMMAND=$(tac ~/.bash_history | peco)
     echo "exec: ${SELECTED_COMMAND}"
     eval $SELECTED_COMMAND
 }
