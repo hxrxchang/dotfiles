@@ -41,8 +41,8 @@ export DISABLE_SPRING=1
 ssh-add -K ~/.ssh/id_rsa
 
 export PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
-source ~/.git-prompt.sh
-source ~/.git-completion.bash
+source ~/dotfiles/git/.git-prompt.sh
+source ~/dotfiles/git/.git-completion.bash
 
 # catalinaでbash使っても警告させない
 export BASH_SILENCE_DEPRECATION_WARNING=1
