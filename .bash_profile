@@ -50,9 +50,11 @@ export BASH_SILENCE_DEPRECATION_WARNING=1
 # pecoでhistory検索して実行できる関数
 peco_search_history() {
     SELECTED_COMMAND=$(tail -r ~/.bash_history | peco)
-    echo "exec: ${SELECTED_COMMAND}"
-    eval $SELECTED_COMMAND
-    history -s $SELECTED_COMMAND
+    if [ "$SELECTED_COMMAND" != "" ]; then
+        echo "exec: ${SELECTED_COMMAND}"
+        eval $SELECTED_COMMAND
+        history -s $SELECTED_COMMAND
+    fi
 }
 
 source ~/dotfiles/alias.sh
