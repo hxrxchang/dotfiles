@@ -11,6 +11,7 @@ shopt -u histappend
 export HISTSIZE=2000
 
 export PATH="/usr/local/bin:$PATH"
+export PATH="$HOME/bin:$PATH"
 
 export PATH="$HOME/.nodenv/bin:$PATH"
 eval "$(nodenv init -)"
