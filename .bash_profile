@@ -10,7 +10,6 @@ PROMPT_COMMAND='share_history'
 shopt -u histappend
 export HISTSIZE=2000
 
-# for git
 export PATH="/usr/local/bin:$PATH"
 
 export PATH="$HOME/.nodenv/bin:$PATH"
