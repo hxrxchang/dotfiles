@@ -9,6 +9,6 @@ alias g='git'
 alias commit-diff='git diff HEAD~..HEAD'
 alias gsw='git branch | peco | xargs git switch'
 alias cleanbranches='git branch | grep -v "master" | grep -v "*" | xargs git branch -D'
-alias gsee='hub browse'
+alias gsee='hubrowse'
 
 alias his="peco_search_history"
