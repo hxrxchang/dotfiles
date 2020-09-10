@@ -57,5 +57,14 @@ peco_search_history() {
     fi
 }
 
-source ~/dotfiles/alias.sh
+peco_search_app() {
+    SELECTED_APP=$(ls /Applications | peco)
+    if [ "$SELECTED_APP" != "" ]; then
+        OPEN_APP_COMMAND="open -a '/Applications/${SELECTED_APP}'"
+        echo "exec: ${OPEN_APP_COMMAND}"
+        eval $OPEN_APP_COMMAND
+        history -s $OPEN_APP_COMMAND
+    fi
+}
 
+source ~/dotfiles/alias.sh
