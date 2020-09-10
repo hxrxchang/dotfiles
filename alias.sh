@@ -13,4 +13,4 @@ alias cleanbranches='git branch | grep -v "master" | grep -v "*" | xargs git bra
 alias gsee='hubrowse'
 
 alias his="peco_search_history"
-alias open-app="peco_search_app"
+alias app="peco_search_app"
