@@ -51,9 +51,7 @@ export BASH_SILENCE_DEPRECATION_WARNING=1
 peco_search_history() {
     SELECTED_COMMAND=$(tail -r ~/.bash_history | peco)
     if [ "$SELECTED_COMMAND" != "" ]; then
-        echo "exec: ${SELECTED_COMMAND}"
-        eval $SELECTED_COMMAND
-        history -s $SELECTED_COMMAND
+        exec_and_add_history "$SELECTED_COMMAND"
     fi
 }
 
@@ -61,10 +59,14 @@ peco_search_app() {
     SELECTED_APP=$(ls /Applications | peco)
     if [ "$SELECTED_APP" != "" ]; then
         OPEN_APP_COMMAND="open -a '/Applications/${SELECTED_APP}'"
-        echo "exec: ${OPEN_APP_COMMAND}"
-        eval $OPEN_APP_COMMAND
-        history -s $OPEN_APP_COMMAND
+        exec_and_add_history "$OPEN_APP_COMMAND"
     fi
+}
+
+exec_and_add_history() {
+    echo "exec: ${1}"
+    eval $1
+    history -s $1
 }
 
 source ~/dotfiles/alias.sh
