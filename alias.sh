@@ -14,3 +14,6 @@ alias gsee='hubrowse'
 
 alias his="peco_search_history"
 alias app="peco_search_app"
+
+alias save-vscode-extensions="code --list-extensions >> ~/dotfiles/vscode/extensions.list"
+alias install-vscode-extensions="cat ~/dotfiles/vscode/extensions.list | xargs -L 1 code --install-extension"
