@@ -1,7 +1,10 @@
 Angular.ng-template
+bbenoist.vagrant
 bung87.rails
 bung87.vscode-gemfile
 castwide.solargraph
+CraigMaslowski.erb
+davidhouchin.whitespace-plus
 dbaeumer.vscode-eslint
 dzhavat.css-flexbox-cheatsheet
 EditorConfig.EditorConfig
@@ -41,6 +44,6 @@ sianglim.slim
 silvenon.mdx
 sysoev.vscode-open-in-github
 vscode-icons-team.vscode-icons
-ziyasal.vscode-open-in-github
 wingrunr21.vscode-ruby
 xyc.vscode-mdx-preview
+ziyasal.vscode-open-in-github
