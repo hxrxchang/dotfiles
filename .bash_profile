@@ -47,6 +47,9 @@ source ~/dotfiles/git/.git-completion.bash
 # catalinaでbash使っても警告させない
 export BASH_SILENCE_DEPRECATION_WARNING=1
 
+eval "$(starship init bash)"
+export STARSHIP_CONFIG=~/dotfiles/starship/starship.toml
+
 # pecoでhistory検索して実行できる関数
 peco_search_history() {
     SELECTED_COMMAND=$(tail -r ~/.bash_history | peco)
