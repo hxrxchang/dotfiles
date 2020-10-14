@@ -5,22 +5,22 @@
         "revision": "58cd2d983daa4851d10a8932113d8af615991e2c"
       },
       "heroku/brew": {
-        "revision": "68e6a267800a75bbfd1efc171aadb4c3939d1918"
+        "revision": "b9e6a95ddf88c7aadb710432e81eab1ab9a4192c"
       },
       "homebrew/bundle": {
         "revision": "78513292658ff002a6a816bdeb9d286150ee1a16"
       },
       "homebrew/cask": {
-        "revision": "c25fe8394747301c35df9f157d479dfc07904bd8"
+        "revision": "acec04197a2633d1f0b034a302fece354f08c1de"
       },
       "homebrew/core": {
-        "revision": "cfb5e9154f1508a91bc5453541f8742dcb78effa"
+        "revision": "32e5583d44b4ee57a5a7b3517b5658853d10cc67"
       },
       "homebrew/services": {
         "revision": "0448884d8213af19280ee8fab30af89cca20f630"
       },
       "kayac/tap": {
-        "revision": "ee19b9922d3962c64c97c39dbaf83abbce301726"
+        "revision": "f586042f083a301cb7c050d83a1ce38bd5a29d88"
       }
     },
     "brew": {
@@ -333,7 +333,28 @@
         "version": "1.22.10",
         "bottle": false
       },
-      "kayac/tap/ecspresso": null
+      "kayac/tap/ecspresso": null,
+      "awscli": {
+        "version": "2.0.56",
+        "bottle": {
+          "cellar": "/usr/local/Cellar",
+          "prefix": "/usr/local",
+          "files": {
+            "catalina": {
+              "url": "https://homebrew.bintray.com/bottles/awscli-2.0.56.catalina.bottle.tar.gz",
+              "sha256": "2208ab5d95330760932cb33031a442f323f3af82265d365b88a7667bad0166c9"
+            },
+            "mojave": {
+              "url": "https://homebrew.bintray.com/bottles/awscli-2.0.56.mojave.bottle.tar.gz",
+              "sha256": "c2934f8ae4c6f9e6fc2dfb9ba8908a25fa755e87bf0b768072571d3eadcc9fae"
+            },
+            "high_sierra": {
+              "url": "https://homebrew.bintray.com/bottles/awscli-2.0.56.high_sierra.bottle.tar.gz",
+              "sha256": "c194c1cd3583b059771c2e18fe4581b60c28ff6eedabf2dfb1ff47e57eb52b39"
+            }
+          }
+        }
+      }
     },
     "cask": {
       "aws-vault": {
@@ -349,9 +370,9 @@
       "catalina": {
         "HOMEBREW_VERSION": "2.5.6",
         "HOMEBREW_PREFIX": "/usr/local",
-        "Homebrew/homebrew-core": "cfb5e9154f1508a91bc5453541f8742dcb78effa",
-        "CLT": "12.0.0.0.1.1599194153",
-        "Xcode": "11.7",
+        "Homebrew/homebrew-core": "32e5583d44b4ee57a5a7b3517b5658853d10cc67",
+        "CLT": "1103.0.32.62",
+        "Xcode": "11.5",
         "macOS": "10.15.6"
       }
     }
