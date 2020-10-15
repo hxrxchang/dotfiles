@@ -82,4 +82,9 @@ brew_bundle() {
     cd ~/dotfiles && brew bundle && cd $current_dir
 }
 
+brew_cleanup() {
+    current_dir=$(pwd)
+    cd ~/dotfiles && brew bundle cleanup && cd $current_dir
+}
+
 source ~/dotfiles/alias.sh
