@@ -72,4 +72,14 @@ exec_and_add_history() {
     history -s $1
 }
 
+brew_dump() {
+    current_dir=$(pwd)
+    cd ~/dotfiles && rm Brewfile && brew bundle dump && cd $current_dir
+}
+
+brew_bundle() {
+    current_dir=$(pwd)
+    cd ~/dotfiles && brew bundle && cd $current_dir
+}
+
 source ~/dotfiles/alias.sh

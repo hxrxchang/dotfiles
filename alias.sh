@@ -19,5 +19,5 @@ alias save-vscode-extensions="code --list-extensions > ~/dotfiles/vscode/extensi
 alias install-vscode-extensions="cat ~/dotfiles/vscode/extensions.list | xargs -L 1 code --install-extension"
 
 # check https://formulae.brew.sh/ before install
-alias brew-dump="cd ~/dotfiles && rm Brewfile && brew bundle dump"
-alias brew-bundle="cd ~/dotfiles && brew bundle"
+alias brew-dump="brew_dump"
+alias brew-bundle="brew_bundle"
