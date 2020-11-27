@@ -41,4 +41,5 @@ cask "virtualbox"
 cask "vagrant"
 cask "sequel-pro"
 cask "sequel-ace"
-
+cask "krisp"
+cask "zoom"
