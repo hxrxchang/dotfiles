@@ -39,3 +39,6 @@ cask "clipy"
 cask "docker"
 cask "virtualbox"
 cask "vagrant"
+cask "sequel-pro"
+cask "sequel-ace"
+
