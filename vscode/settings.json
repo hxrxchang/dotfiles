@@ -1,6 +1,6 @@
 {
   "workbench.editor.enablePreview": false,
-  "editor.formatOnSave": true,
+  "editor.formatOnSave": false,
   "editor.minimap.enabled": false,
   "window.zoomLevel": 0,
   "breadcrumbs.enabled": true,
@@ -112,5 +112,6 @@
   },
   "typescript.updateImportsOnFileMove.enabled": "always",
   "javascript.updateImportsOnFileMove.enabled": "always",
-  "editor.renderWhitespace": "all"
+  "editor.renderWhitespace": "all",
+  "editor.defaultFormatter": "esbenp.prettier-vscode"
 }
