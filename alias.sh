@@ -1,4 +1,4 @@
-alias rm="gomi"
+alias gm="gomi"
 alias sbp='source ~/.bash_profile'
 alias checkip='ifconfig | grep "inet " | grep -v 127.0.0.1'
 alias ll='ls -alF -h'
