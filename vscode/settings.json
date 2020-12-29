@@ -1,6 +1,6 @@
 {
   "workbench.editor.enablePreview": false,
-  "editor.formatOnSave": false,
+  "editor.formatOnSave": true,
   "editor.minimap.enabled": false,
   "window.zoomLevel": 0,
   "breadcrumbs.enabled": true,
