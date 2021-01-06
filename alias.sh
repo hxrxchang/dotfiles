@@ -18,6 +18,8 @@ alias app="peco_search_app"
 alias save-vscode-extensions="code --list-extensions > ~/dotfiles/vscode/extensions.list"
 alias install-vscode-extensions="cat ~/dotfiles/vscode/extensions.list | xargs -L 1 code --install-extension"
 
+alias edit-aws="vim ~/.aws/credentials"
+
 # check https://formulae.brew.sh/ before install
 alias brew-dump="brew_dump"
 alias brew-bundle="brew_bundle"
