@@ -21,6 +21,8 @@ alias install-vscode-extensions="cat ~/dotfiles/vscode/extensions.list | xargs -
 
 alias edit-aws="vim ~/.aws/credentials"
 
+alias sysset="open 'x-apple.systempreferences:'"
+
 # check https://formulae.brew.sh/ before install
 alias brew-dump="brew_dump"
 alias brew-bundle="brew_bundle"
