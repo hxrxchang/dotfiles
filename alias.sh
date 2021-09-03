@@ -5,6 +5,7 @@ alias ll='ls -alF -h'
 alias chrome="open -a '/Applications/Google Chrome.app'"
 alias slack="open -a '/Applications/Slack.app'"
 alias to="touch"
+alias v="vim"
 
 ## git
 alias g='git'
