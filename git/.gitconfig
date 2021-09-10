@@ -20,6 +20,7 @@
         cm = commit
         ps = push origin HEAD
         pl = pull
+        cl = clone
 [core]
 	excludesfile = ~/.gitignore_global
 [pull]
