@@ -21,6 +21,7 @@
         ps = push origin HEAD
         pl = pull
         cl = clone
+        ro=remote-open
 [core]
 	excludesfile = ~/.gitignore_global
 [pull]
