@@ -35,6 +35,8 @@ eval "$(goenv init -)"
 export PATH="$GOROOT/bin:$PATH"
 export PATH="$PATH:$GOPATH/bin"
 
+# for direnv
+export EDITOR=vim
 eval "$(direnv hook bash)"
 
 export DISABLE_SPRING=1
