@@ -39,6 +39,7 @@ eval "$(direnv hook bash)"
 
 export DISABLE_SPRING=1
 
+export APPLE_SSH_ADD_BEHAVIOR="macos"
 ssh-add -K ~/.ssh/id_rsa
 
 export PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
