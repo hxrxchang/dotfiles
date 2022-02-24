@@ -70,8 +70,8 @@ peco_search_app() {
 
 exec_and_add_history() {
     echo "exec: ${1}"
-    eval $1
     history -s $1
+    eval $1
 }
 
 brew_dump() {
