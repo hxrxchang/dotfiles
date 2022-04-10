@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<folders>
+	<folder>
+		<title>go</title>
+		<snippets>
+			<snippet>
+				<title>numbers</title>
+				<content>
+func numbers(s string) []int {
+	var n []int
+	for _, f := range strings.Fields(s) {
+		i, _ := strconv.Atoi(f)
+		n = append(n, i)
+	}
+	return n
+}</content>
+			</snippet>
+		</snippets>
+	</folder>
+</folders>
