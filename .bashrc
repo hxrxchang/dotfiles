@@ -88,3 +88,4 @@ brew_cleanup() {
 }
 
 source ~/dotfiles/alias.sh
+. "$HOME/.cargo/env"
