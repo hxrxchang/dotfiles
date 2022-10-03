@@ -20,7 +20,6 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init --path)"
 eval "$(pyenv init -)"
 
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 
@@ -36,9 +35,6 @@ export EDITOR=vim
 eval "$(direnv hook bash)"
 
 export DISABLE_SPRING=1
-
-export APPLE_SSH_ADD_BEHAVIOR="macos"
-ssh-add -K ~/.ssh/id_rsa
 
 export PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
 source ~/dotfiles/git/.git-prompt.sh
@@ -88,4 +84,4 @@ brew_cleanup() {
 }
 
 source ~/dotfiles/alias.sh
-. "$HOME/.cargo/env"
+# . "$HOME/.cargo/env"
