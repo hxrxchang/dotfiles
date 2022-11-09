@@ -1,0 +1,4 @@
+[codestyle]
+template_file='~/dotfiles/atcoder/my_template.py'
+workspace_dir='~/works/atcoder'
+lang='python'

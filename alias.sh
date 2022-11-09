@@ -28,3 +28,5 @@ alias sysset="open 'x-apple.systempreferences:'"
 alias brew-dump="brew_dump"
 alias brew-bundle="brew_bundle"
 alias brew-cleanup="brew_cleanup"
+
+alias act="atcoder-tools"

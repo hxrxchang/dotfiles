@@ -6,3 +6,4 @@ symlink:
 	ln -sf ~/dotfiles/git/.git-templates ~/.git-templates
 	ln -sf ~/dotfiles/.vimrc ~/.vimrc
 	ln -sf ~/dotfiles/karabiner/karabiner.json ~/.config/karabiner/karabiner.json
+	ln -sf ~/dotfiles/atcoder/.atcodertools.toml ~/.atcodertools.toml
