@@ -85,5 +85,9 @@ brew_cleanup() {
     cd ~/dotfiles && brew bundle cleanup && cd $current_dir
 }
 
+act_gen() {
+    atcoder-tools gen $1 --without-login --workspace=.
+}
+
 source ~/dotfiles/alias.sh
 # . "$HOME/.cargo/env"
