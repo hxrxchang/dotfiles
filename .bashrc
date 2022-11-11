@@ -86,8 +86,8 @@ brew_cleanup() {
 }
 
 act_gen() {
-    if [ $2 = "" ] ; then
-        LANG = ""
+    if [ -z $2 ] ; then
+        LANG=""
     else
         LANG="--lang=$2"
     fi
