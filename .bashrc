@@ -86,8 +86,13 @@ brew_cleanup() {
 }
 
 act_gen() {
-    atcoder-tools gen $1 --without-login --workspace=.
+    if [ $2 = "" ] ; then
+        LANG = ""
+    else
+        LANG="--lang=$2"
+    fi
+    atcoder-tools gen $1 --without-login --workspace=. $LANG
 }
 
 source ~/dotfiles/alias.sh
-# . "$HOME/.cargo/env"
+. "$HOME/.cargo/env" # https://www.rust-lang.org/ja/tools/install
