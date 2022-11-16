@@ -31,3 +31,4 @@ alias brew-cleanup="brew_cleanup"
 
 alias act="atcoder-tools"
 alias actgen="act_gen"
+alias acttest="act_test"

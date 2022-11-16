@@ -94,5 +94,10 @@ act_gen() {
     atcoder-tools gen $1 --without-login --workspace=. $LANG
 }
 
+act_test() {
+    cmd="python main.py"
+    cat "in_$1.txt" | $cmd
+}
+
 source ~/dotfiles/alias.sh
 . "$HOME/.cargo/env" # https://www.rust-lang.org/ja/tools/install
