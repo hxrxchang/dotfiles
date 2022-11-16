@@ -16,6 +16,7 @@ alias gsee='git-remote-opener'
 
 alias his="peco_search_history"
 alias app="peco_search_app"
+alias sd="peco_cd"
 
 alias save-vscode-extensions="code --list-extensions > ~/dotfiles/vscode/extensions.list"
 alias install-vscode-extensions="cat ~/dotfiles/vscode/extensions.list | xargs -L 1 code --install-extension"
