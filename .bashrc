@@ -125,7 +125,7 @@ act_gen() {
     else
         LANG="--lang=$2"
     fi
-    atcoder-tools gen $1 --without-login --workspace=. $LANG
+    atcoder-tools gen $1 --workspace=. $LANG
 }
 
 act_test() {
