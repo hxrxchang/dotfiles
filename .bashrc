@@ -14,9 +14,8 @@ export HISTSIZE=2000
 export PATH="/usr/local/bin:$PATH"
 export PATH="$HOME/bin:$PATH"
 
-export PATH="$HOME/.nodenv/bin:$PATH"
-eval "$(nodenv init -)"
-export PATH="$HOME/.yarn/bin:$PATH"
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"
 
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
