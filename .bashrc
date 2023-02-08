@@ -131,7 +131,11 @@ act_gen() {
 }
 
 act_test() {
-    cmd="python main.py"
+    if [ -z $2 ] ; then
+        cmd="python main.py"
+    elif [ $2 = "go" ] ; then
+        cmd="go run main.go"
+    fi
     cat "in_$1.txt" | $cmd
 }
 
