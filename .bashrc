@@ -132,7 +132,7 @@ act_gen() {
 
 act_test() {
     if [ -z $2 ] ; then
-        cmd="pypy3 main.py"
+        cmd="python main.py"
     elif [ $2 = "go" ] ; then
         cmd="go run main.go"
     fi
