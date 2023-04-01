@@ -1,0 +1,19 @@
+[include]
+        path = .gitconfig.local
+[alias]
+        overwrite = push --force-with-leas
+        ow = push origin HEAD --force-with-leas --force-if-includes
+        co = checkout
+	log1 = log --oneline
+        br = branch --sort=authordate
+        sw = switch
+        rs = restore
+        st = status
+        chp = cherry-pick
+        rb = rebase
+        df = diff
+        cm = commit
+        ps = push origin HEAD
+        pl = pull
+        cl = clone
+        ro=remote-open
