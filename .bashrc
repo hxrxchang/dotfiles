@@ -123,11 +123,11 @@ brew_cleanup() {
 
 act_gen() {
     if [ -z $2 ] ; then
-        LANG=""
+        OPTION=""
     else
-        LANG="--lang=$2"
+        OPTION="--lang=$2 --template=~/dotfiles/atcoder/template.$2"
     fi
-    atcoder-tools gen $1 --workspace=. $LANG
+    atcoder-tools gen $1 --workspace=. $OPTION
 }
 
 act_test() {
