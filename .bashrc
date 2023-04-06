@@ -121,7 +121,7 @@ brew_cleanup() {
     cd ~/dotfiles && brew bundle cleanup && cd $current_dir
 }
 
-act_gen() {
+actgen() {
     if [ -z $2 ] ; then
         OPTION=""
     else
@@ -130,13 +130,17 @@ act_gen() {
     atcoder-tools gen $1 --workspace=. $OPTION
 }
 
-act_test() {
+acttest() {
     if [ -z $2 ] ; then
         cmd="python main.py"
     elif [ $2 = "go" ] ; then
         cmd="go run main.go"
     fi
     cat "in_$1.txt" | $cmd
+}
+
+actadd() {
+    cp ~/dotfiles/atcoder/template.$1 ./main.$1
 }
 
 source ~/dotfiles/alias.sh
