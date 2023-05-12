@@ -32,6 +32,8 @@ export GOROOT=/usr/local/go
 export GOPATH=$HOME/go
 export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
 
+export PATH=/Users/yuto.hara/.nimble/bin:$PATH
+
 # for direnv
 export EDITOR=vim
 eval "$(direnv hook bash)"
@@ -144,4 +146,5 @@ actadd() {
 }
 
 source ~/dotfiles/alias.sh
+
 . "$HOME/.cargo/env" # https://www.rust-lang.org/ja/tools/install
