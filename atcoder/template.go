@@ -17,10 +17,13 @@ func main() {
 	solve()
 }
 
-func solve() {}
+func solve() {
 
+}
+
+// ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // 一行をstringで読み込み
-func readline() string {
+func input() string {
 	buf := make([]byte, 0, 16)
 	for {
 		l, p, e := rdr.ReadLine()
@@ -36,10 +39,15 @@ func readline() string {
 	return string(buf)
 }
 
-// 一行を[]intで読み込み
-func readIntSlice() []int {
+// string <-> []string
+func strToSlice(input string) []string {
+	return strings.Split(input, " ")
+}
+
+// // string <-> []int
+func mapToIntSlice(input string) []int {
 	slice := make([]int, 0)
-	lines := strings.Split(readline(), " ")
+	lines := strToSlice(input)
 	for _, v := range lines {
 		// s2iはstringをintに変換する関数(後述)
 		slice = append(slice, s2i(v))
