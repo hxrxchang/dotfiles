@@ -40,8 +40,15 @@ func input() string {
 }
 
 // string <-> []string
+// 半角スペース区切りで分割
 func strToSlice(input string) []string {
 	return strings.Split(input, " ")
+}
+
+// string <-> []slice
+// 文字列を1文字ずつに分割
+func strToSlice2(input string) []string {
+	return strings.Split(input, "")
 }
 
 // // string <-> []int
