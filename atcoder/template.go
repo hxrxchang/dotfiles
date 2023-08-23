@@ -40,21 +40,16 @@ func input() string {
 }
 
 // string <-> []string
-// 半角スペース区切りで分割
-func strToSlice(input string) []string {
-	return strings.Split(input, " ")
+// 第２引数で渡された文字列でsplitする
+func strToSlice(input, sep string) []string {
+	return strings.Split(input, sep)
 }
 
-// string <-> []slice
-// 文字列を1文字ずつに分割
-func strToSlice2(input string) []string {
-	return strings.Split(input, "")
-}
 
 // // string <-> []int
 func mapToIntSlice(input string) []int {
 	slice := make([]int, 0)
-	lines := strToSlice(input)
+	lines := strToSlice(input, " ")
 	for _, v := range lines {
 		// s2iはstringをintに変換する関数(後述)
 		slice = append(slice, s2i(v))
