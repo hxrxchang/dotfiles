@@ -6,6 +6,7 @@ alias chrome="open -a '/Applications/Google Chrome.app'"
 alias slack="open -a '/Applications/Slack.app'"
 alias to="touch"
 alias v="vim"
+alias rpy="rye run python"
 
 ## git
 alias g='git'
