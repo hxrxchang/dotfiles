@@ -123,6 +123,11 @@ brew_cleanup() {
     cd ~/dotfiles && brew bundle cleanup && cd $current_dir
 }
 
+memo() {
+    touch ~/memo/$(date "+%Y%m%d%H%M%S").md
+    code ~/memo/
+}
+
 actgen() {
     if [ -z $2 ] ; then
         OPTION=""
