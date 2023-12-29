@@ -32,3 +32,4 @@ alias brew-bundle="brew_bundle"
 alias brew-cleanup="brew_cleanup"
 
 alias act="atcoder-tools"
+alias cac="cargo compete"
