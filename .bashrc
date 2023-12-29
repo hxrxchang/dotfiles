@@ -150,13 +150,12 @@ actadd() {
     cp ~/dotfiles/atcoder/template.$1 ./main.$1
 }
 
-peco-src () {
+peco_search_repo () {
   local selected_dir=$(ghq list -p | peco --prompt="repositories >" --query "$LBUFFER")
   if [ -n "$selected_dir" ]; then
     cd ${selected_dir}
   fi
 }
-bind -x '"\C-]":peco-src'
 
 source ~/dotfiles/alias.sh
 
