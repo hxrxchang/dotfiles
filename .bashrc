@@ -150,6 +150,14 @@ actadd() {
     cp ~/dotfiles/atcoder/template.$1 ./main.$1
 }
 
+peco-src () {
+  local selected_dir=$(ghq list -p | peco --prompt="repositories >" --query "$LBUFFER")
+  if [ -n "$selected_dir" ]; then
+    cd ${selected_dir}
+  fi
+}
+bind -x '"\C-]":peco-src'
+
 source ~/dotfiles/alias.sh
 
 . "$HOME/.cargo/env" # https://www.rust-lang.org/ja/tools/install
