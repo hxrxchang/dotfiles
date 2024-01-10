@@ -150,6 +150,19 @@ actadd() {
     cp ~/dotfiles/atcoder/template.$1 ./main.$1
 }
 
+cargo_compete_new() {
+    cargo compete new $1
+    cargo member include $1
+}
+
+cargo_compete_test() {
+    cargo compete test $1
+}
+
+cargo_compete_submit() {
+    cargo compete submit $1
+}
+
 peco_search_repo () {
   local selected_dir=$(ghq list -p | peco --prompt="repositories >" --query "$LBUFFER")
   if [ -n "$selected_dir" ]; then
