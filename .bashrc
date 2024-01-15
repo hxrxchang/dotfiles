@@ -139,7 +139,7 @@ actgen() {
 
 acttest() {
     if [ -z $2 ] ; then
-        cmd="run python main.py"
+        cmd="python main.py"
     elif [ $2 = "go" ] ; then
         cmd="go run main.go"
     fi
