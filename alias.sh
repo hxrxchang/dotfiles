@@ -13,7 +13,7 @@ alias g='git'
 alias commit-diff='git diff HEAD~..HEAD'
 alias gsw='git branch | peco | xargs git switch'
 alias cleanbranches='~/branch-cleaner/branch-cleaner.sh'
-alias gsee='git-remote-opener'
+alias gsee='gh repo view --web'
 
 alias his="peco_search_history"
 alias app="peco_search_app"
