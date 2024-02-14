@@ -32,7 +32,6 @@ alias brew-dump="brew_dump"
 alias brew-bundle="brew_bundle"
 alias brew-cleanup="brew_cleanup"
 
-alias act="atcoder-tools"
 alias cc="cargo compete"
 alias ccn="cargo_compete_new"
 alias cct="cargo_compete_test"

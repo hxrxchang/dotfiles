@@ -128,25 +128,59 @@ memo() {
     code ~/memo/
 }
 
-actgen() {
-    if [ -z $2 ] ; then
-        OPTION=""
-    else
-        OPTION="--lang=$2 --template=~/dotfiles/atcoder/template.$2"
-    fi
-    atcoder-tools gen $1 --workspace=. $OPTION
+acgen() {
+    acc new $1
+    directories=$(find $1 -maxdepth 1 -type d ! -name $1)
+    for dir in $directories; do
+       cp ~/dotfiles/atcoder/template.$2 $dir/main.$2
+    done
 }
 
-acttest() {
-    if [ -z $2 ] ; then
-        cmd="python main.py"
-    elif [ $2 = "go" ] ; then
+act() {
+    if [ -z $1 ]; then
+        echo "Please specify the sample or language"
+        return
+    fi
+    if [ -z $2 ]; then
+        echo "Please specify the language"
+        return
+    fi
+    if [ $2 = "go" ] ; then
         cmd="go run main.go"
+    elif [ $2 = "py" ] ; then
+        cmd="python main.py"
     fi
-    cat "in_$1.txt" | $cmd
+    cat "tests/sample-$1.in" | $cmd
 }
 
-actadd() {
+actest() {
+    if [ -z $1 ]; then
+        echo "Please specify the language"
+        return
+    fi
+    if [ $1 = "go" ]; then
+        cmd="go run main.go"
+    elif [ $1 = "py" ]; then
+        cmd="python main.py"
+    fi
+    echo $cmd
+    oj t -c "$cmd" -d ./tests/
+}
+
+acs() {
+    if [ -z $1 ]; then
+        echo "Please specify the language"
+        return
+    fi
+    if [ $1 = "go" ]; then
+        lang_id=5002
+    elif [ $1 = "py" ]; then
+        lang_id=5078
+    fi
+    acc submit main.$1 -- -l $lang_id
+}
+
+acadd() {
     cp ~/dotfiles/atcoder/template.$1 ./main.$1
 }
 
