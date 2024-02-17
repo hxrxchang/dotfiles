@@ -138,19 +138,19 @@ acgen() {
 
 act() {
     if [ -z $1 ]; then
-        echo "Please specify the sample or language"
+        echo "Please specify the language or sample"
         return
     fi
     if [ -z $2 ]; then
-        echo "Please specify the language"
+        echo "Please specify the sample"
         return
     fi
-    if [ $2 = "go" ] ; then
+    if [ $1 = "go" ] ; then
         cmd="go run main.go"
-    elif [ $2 = "py" ] ; then
+    elif [ $1 = "py" ] ; then
         cmd="python main.py"
     fi
-    cat "tests/sample-$1.in" | $cmd
+    cat "tests/sample-$2.in" | $cmd
 }
 
 actest() {
@@ -181,6 +181,10 @@ acs() {
 }
 
 acadd() {
+    if [ -z $1 ]; then
+        echo "Please specify the language"
+        return
+    fi
     cp ~/dotfiles/atcoder/template.$1 ./main.$1
 }
 
