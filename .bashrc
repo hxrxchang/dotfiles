@@ -129,6 +129,14 @@ memo() {
 }
 
 acgen() {
+    if [ -z $1 ]; then
+        echo "Please specify the contest and language"
+        return
+    fi
+    if [ -z $2 ]; then
+        echo "Please specify the language"
+        return
+    fi
     acc new $1
     directories=$(find $1 -maxdepth 1 -type d ! -name $1)
     for dir in $directories; do
@@ -138,7 +146,7 @@ acgen() {
 
 act() {
     if [ -z $1 ]; then
-        echo "Please specify the language or sample"
+        echo "Please specify the language and sample"
         return
     fi
     if [ -z $2 ]; then
