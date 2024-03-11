@@ -135,6 +135,10 @@ func lcm(v1, v2 int) int {
 	return v1 * v2 / gcd(v1, v2)
 }
 
+func makeSet[V comparable]() map[V]struct{} {
+	return make(map[V]struct{})
+}
+
 // heap (priority queue)
 type intHeap []int
 func (h intHeap) Len() int {
