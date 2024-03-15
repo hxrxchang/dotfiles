@@ -2,6 +2,7 @@ package main
 
 import (
 	"bufio"
+	"cmp"
 	"fmt"
 	"math"
 	"os"
@@ -135,28 +136,59 @@ func lcm(v1, v2 int) int {
 	return v1 * v2 / gcd(v1, v2)
 }
 
-func makeSet[V comparable]() map[V]struct{} {
+func newSet[V comparable]() map[V]struct{} {
 	return make(map[V]struct{})
 }
 
 // heap (priority queue)
-type intHeap []int
-func (h intHeap) Len() int {
+type Heap[T cmp.Ordered] []T
+func (h Heap[T]) len() int {
 	return len(h)
 }
-func (h intHeap) Less(i, j int) bool {
+func (h Heap[T]) less(i, j int) bool {
 	return h[i] < h[j]
 }
-func (h intHeap) Swap(i, j int) {
+func (h Heap[T]) swap(i, j int) {
 	h[i], h[j] = h[j], h[i]
 }
-func (h *intHeap) Push(x interface{}) {
-	*h = append(*h, x.(int))
+func (h *Heap[T]) push(x T) {
+	*h = append(*h, x)
 }
-func (h *intHeap) Pop() interface{} {
+func (h *Heap[T]) pop() interface{} {
 	old := *h
 	n := len(old)
 	x := old[n-1]
 	*h = old[0 : n-1]
 	return x
 }
+
+// queue
+type Queue[T any] struct {
+	values []T
+}
+func newQueue[T any]() *Queue[T] {
+	return &Queue[T]{}
+}
+func (q *Queue[T]) push(v T) {
+	q.values = append(q.values, v)
+}
+func (q *Queue[T]) popLeft() T {
+	v := q.values[0]
+	q.values = q.values[1:]
+	return v
+}
+func (q *Queue[T]) pop() T {
+	v := q.values[len(q.values)-1]
+	q.values = q.values[:len(q.values)-1]
+	return v
+}
+func (q *Queue[T]) front() T {
+	return q.values[0]
+}
+func (q *Queue[T]) size() int {
+	return len(q.values)
+}
+func (q *Queue[T]) empty() bool {
+	return len(q.values) == 0
+}
+
