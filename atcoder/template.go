@@ -138,6 +138,9 @@ func lcm(v1, v2 int) int {
 }
 
 func ceilDiv(a, b int) int {
+	if a + b - 1 < 0 && (a + b - 1) % b != 0 {
+		return (a + b - 1) / b - 1
+	}
 	return (a + b - 1) / b
 }
 
