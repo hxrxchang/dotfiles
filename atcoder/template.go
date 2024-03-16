@@ -2,12 +2,13 @@ package main
 
 import (
 	"bufio"
-	"cmp"
 	"fmt"
 	"math"
 	"os"
 	"strconv"
 	"strings"
+
+	"golang.org/x/exp/constraints"
 )
 
 const BUFSIZE = 10000000
@@ -146,7 +147,8 @@ func newSet[V comparable]() map[V]struct{} {
 }
 
 // heap (priority queue)
-type Heap[T cmp.Ordered] []T
+// 1.21 以上になったら comp.Ordered に変更する
+type Heap[T constraints.Ordered] []T
 func (h Heap[T]) len() int {
 	return len(h)
 }
