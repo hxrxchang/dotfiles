@@ -136,6 +136,11 @@ func lcm(v1, v2 int) int {
 	return v1 * v2 / gcd(v1, v2)
 }
 
+func ceilDiv(a, b int) int {
+	return (a + b - 1) / b
+}
+
+// set
 func newSet[V comparable]() map[V]struct{} {
 	return make(map[V]struct{})
 }
