@@ -189,6 +189,10 @@ acs() {
 }
 
 acadd() {
+    acc add
+}
+
+acaddl() {
     if [ -z $1 ]; then
         echo "Please specify the language"
         return
