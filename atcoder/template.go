@@ -3,7 +3,6 @@ package main
 import (
 	"bufio"
 	"fmt"
-	"math"
 	"os"
 	"strconv"
 	"strings"
@@ -13,6 +12,7 @@ import (
 
 const BUFSIZE = 10000000
 const MOD = 1000000007
+const BIGGEST = int(1e18)
 var rdr *bufio.Reader
 
 func main() {
@@ -136,8 +136,16 @@ func mod(x, y int) int {
 	return m
 }
 
-func pow(x, y int) int {
-	return int(math.Pow(float64(x), float64(y)))
+func pow(base, exp, mod int) int {
+	result := 1
+	for exp > 0 {
+		if exp%2 == 1 {
+			result = (result * base) % mod
+		}
+		base = (base * base) % mod
+		exp /= 2
+	}
+	return result
 }
 
 func gcd(v1, v2 int) int {
