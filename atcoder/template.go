@@ -12,6 +12,7 @@ import (
 )
 
 const BUFSIZE = 10000000
+const MOD = 1000000007
 var rdr *bufio.Reader
 
 func main() {
@@ -20,10 +21,26 @@ func main() {
 }
 
 func solve() {
-
 }
 
 // ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+func getInt() int {
+	return s2i(input())
+}
+
+func getInts() []int {
+	return mapToIntSlice(input())
+}
+
+func getStr() string {
+	return input()
+}
+
+func getStrs() []string {
+	return strToSlice(input(), " ")
+}
+
 // 一行をstringで読み込み
 func input() string {
 	buf := make([]byte, 0, 16)
