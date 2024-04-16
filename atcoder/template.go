@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"fmt"
 	"os"
+	"sort"
 	"strconv"
 	"strings"
 
@@ -197,6 +198,24 @@ func (h *Heap[T]) pop() interface{} {
 	return x
 }
 
+func sortInts(slice []int) []int {
+	copiedSlice := make([]int, len(slice))
+	copy(copiedSlice, slice)
+
+	sort.Ints(copiedSlice)
+	return copiedSlice
+}
+
+func reverseInts(slice []int) []int {
+	copiedSlice := make([]int, len(slice))
+	copy(copiedSlice, slice)
+
+	for i, j := 0, len(copiedSlice)-1; i < j; i, j = i+1, j-1 {
+		copiedSlice[i], copiedSlice[j] = copiedSlice[j], copiedSlice[i]
+	}
+	return copiedSlice
+}
+
 // queue
 type Queue[T any] struct {
 	values []T
@@ -227,3 +246,16 @@ func (q *Queue[T]) empty() bool {
 	return len(q.values) == 0
 }
 
+// algorithm
+func getDividors(n int) []int {
+	ret := make([]int, 0)
+	for i := 1; i*i <= n; i++ {
+		if n%i == 0 {
+			ret = append(ret, i)
+			if i*i != n {
+				ret = append(ret, n/i)
+			}
+		}
+	}
+	return sortInts(ret)
+}
