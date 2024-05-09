@@ -260,6 +260,14 @@ func getDividors(n int) []int {
 	return sortInts(ret)
 }
 
+// binary search
+func bisectLeft(slice []int, value int) int {
+	return sort.Search(len(slice), func(i int) bool { return slice[i] >= value })
+}
+func bisectRight(slice []int, value int) int {
+	return sort.Search(len(slice), func(i int) bool { return slice[i] > value })
+}
+
 // UnionFind
 type UnionFind struct {
 	// parentsは要素が正の値のときはそのインデックスのルートを表す。
