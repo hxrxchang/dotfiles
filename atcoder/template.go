@@ -259,3 +259,42 @@ func getDividors(n int) []int {
 	}
 	return sortInts(ret)
 }
+
+// UnionFind
+type UnionFind struct {
+	// parentsは要素が正の値のときはそのインデックスのルートを表す。
+	// 負の値のときはそのインデックスはルートであり絶対値がそのルートが持つ要素数を表す。
+	parents []int
+}
+func (uf *UnionFind) root(x int) int {
+	if uf.parents[x] < 0 {
+		return x
+	}
+	uf.parents[x] = uf.root(uf.parents[x])
+	return uf.parents[x]
+}
+func (uf *UnionFind) unit(x, y int) {
+	x = uf.root(x)
+	y = uf.root(y)
+	if x == y {
+		return
+	}
+	// x, yはルートなので必ず負の値(そのルートがもつ要素数)になる
+	if uf.parents[x] > uf.parents[y] {
+		x, y = y, x
+	}
+	// ルートの要素数を更新
+	uf.parents[x] += uf.parents[y]
+	// サイズが小さい方のルートを大きい方のルートに繋げる
+	uf.parents[y] = x
+}
+func (uf *UnionFind) isSame(x, y int) bool {
+	return uf.root(x) == uf.root(y)
+}
+func newUnionFind(n int) *UnionFind {
+	parents := make([]int, n)
+	for i := 0; i < n; i++ {
+		parents[i] = -1
+	}
+	return &UnionFind{parents: parents}
+}
