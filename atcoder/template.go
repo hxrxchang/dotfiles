@@ -246,28 +246,6 @@ func (q *Queue[T]) empty() bool {
 	return len(q.values) == 0
 }
 
-// algorithm
-func getDividors(n int) []int {
-	ret := make([]int, 0)
-	for i := 1; i*i <= n; i++ {
-		if n%i == 0 {
-			ret = append(ret, i)
-			if i*i != n {
-				ret = append(ret, n/i)
-			}
-		}
-	}
-	return sortInts(ret)
-}
-
-// binary search
-func bisectLeft(slice []int, value int) int {
-	return sort.Search(len(slice), func(i int) bool { return slice[i] >= value })
-}
-func bisectRight(slice []int, value int) int {
-	return sort.Search(len(slice), func(i int) bool { return slice[i] > value })
-}
-
 // UnionFind
 type UnionFind struct {
 	// parentsは要素が正の値のときはそのインデックスのルートを表す。
@@ -309,3 +287,123 @@ func newUnionFind(n int) *UnionFind {
 	}
 	return &UnionFind{parents: parents}
 }
+
+// algorithm
+// 約数列挙
+func getDividors(n int) []int {
+	ret := make([]int, 0)
+	for i := 1; i*i <= n; i++ {
+		if n%i == 0 {
+			ret = append(ret, i)
+			if i*i != n {
+				ret = append(ret, n/i)
+			}
+		}
+	}
+	return sortInts(ret)
+}
+
+// 順列列挙
+// 与えられたスライスの次の順列を取得する
+// 使用例
+// x := []int{1, 2, 3, 4}
+// for {
+// 	fmt.Println(x)
+// 	if !NextPermutation(sort.IntSlice(x)) {
+// 		break
+// 	}
+// }
+func nextPermutation(x sort.Interface) bool {
+	n := x.Len() - 1
+	if n < 1 {
+		return false
+	}
+	j := n - 1
+	for ; !x.Less(j, j+1); j-- {
+		if j == 0 {
+			return false
+		}
+	}
+	l := n
+	for !x.Less(j, l) {
+		l--
+	}
+	x.Swap(j, l)
+	for k, l := j+1, n; k < l; {
+		x.Swap(k, l)
+		k++
+		l--
+	}
+	return true
+}
+
+// 組み合わせ
+// スライスからk個選ぶ組み合わせを列挙
+func combinations(list []int, k int) (c chan []int) {
+	c = make(chan []int, 2)
+	n := len(list)
+
+	pattern := make([]int, k)
+
+	var body func(pos, begin int)
+	body = func(pos, begin int) {
+		if pos == k {
+			t := make([]int, k)
+			copy(t, pattern)
+			c <- t
+			return
+		}
+
+		for num := begin; num < n+pos-k+1; num++ {
+			pattern[pos] = list[num]
+			body(pos+1, num+1)
+		}
+	}
+	go func() {
+		defer close(c)
+		body(0, 0)
+	}()
+
+	return
+}
+
+// nCr
+func comb(n, k int) (c chan []int) {
+	pat := make([]int, k)
+	c = make(chan []int, 1)
+
+	var rec func(pos, start int)
+
+	rec = func(pos, start int) {
+		// k個選んでいれば、それを出力する
+		if pos == k {
+			tmp := make([]int, k)
+			copy(tmp, pat)
+			c <- tmp
+			return
+		}
+		// 選んでいない場合は、追加して再帰
+		// 次に選べるのは、startからn-1までの値のいずれか
+		for i := start; i < n; i++ {
+			pat[pos] = i    // posに選んだ数字をセットして
+			rec(pos+1, i+1) // pos, startを１つずつ進める
+		}
+	}
+	go func() {
+		defer close(c)
+		rec(0, 0)
+	}()
+
+	return
+}
+
+
+// binary search
+func bisectLeft(slice []int, value int) int {
+	return sort.Search(len(slice), func(i int) bool { return slice[i] >= value })
+}
+func bisectRight(slice []int, value int) int {
+	return sort.Search(len(slice), func(i int) bool { return slice[i] > value })
+}
+
+
