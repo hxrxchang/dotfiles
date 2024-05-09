@@ -291,6 +291,9 @@ func (uf *UnionFind) unit(x, y int) {
 func (uf *UnionFind) isSame(x, y int) bool {
 	return uf.root(x) == uf.root(y)
 }
+func (uf *UnionFind) size(x int) int {
+	return -uf.parents[uf.root(x)]
+}
 func newUnionFind(n int) *UnionFind {
 	parents := make([]int, n)
 	for i := 0; i < n; i++ {
