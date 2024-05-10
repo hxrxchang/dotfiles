@@ -198,16 +198,19 @@ func (h *Heap[T]) pop() interface{} {
 	return x
 }
 
-func sortInts(slice []int) []int {
-	copiedSlice := make([]int, len(slice))
-	copy(copiedSlice, slice)
+func sortSlice[T constraints.Ordered](slice []T) []T {
+    copiedSlice := make([]T, len(slice))
+    copy(copiedSlice, slice)
 
-	sort.Ints(copiedSlice)
-	return copiedSlice
+    sort.Slice(copiedSlice, func(i, j int) bool {
+        return copiedSlice[i] < copiedSlice[j]
+    })
+
+    return copiedSlice
 }
 
-func reverseInts(slice []int) []int {
-	copiedSlice := make([]int, len(slice))
+func reverse[T constraints.Ordered](slice []T) []T {
+	copiedSlice := make([]T, len(slice))
 	copy(copiedSlice, slice)
 
 	for i, j := 0, len(copiedSlice)-1; i < j; i, j = i+1, j-1 {
@@ -300,7 +303,7 @@ func getDividors(n int) []int {
 			}
 		}
 	}
-	return sortInts(ret)
+	return sortSlice(ret)
 }
 
 // 順列列挙
