@@ -171,8 +171,21 @@ func ceilDiv(a, b int) int {
 }
 
 // set
-func newSet[V comparable]() map[V]struct{} {
-	return make(map[V]struct{})
+type Set[V comparable] struct {
+	values map[V]struct{}
+}
+func newSet[V comparable]() *Set[V] {
+	return &Set[V]{values: make(map[V]struct{})}
+}
+func (s *Set[V]) add(v V) {
+	s.values[v] = struct{}{}
+}
+func (s *Set[V]) remove(v V) {
+	delete(s.values, v)
+}
+func (s *Set[V]) has(v V) bool {
+	_, ok := s.values[v]
+	return ok
 }
 
 // heap (priority queue)
