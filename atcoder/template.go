@@ -60,8 +60,8 @@ func input() string {
 	return string(buf)
 }
 
-func getBigInt(x int64) *big.Int {
-	return big.NewInt(x)
+func getBigInt(x int) *big.Int {
+	return big.NewInt(int64(x))
 }
 
 // string <-> []string
@@ -142,7 +142,19 @@ func mod(x, y int) int {
 	return m
 }
 
-func pow(base, exp, mod int) int {
+func pow(base, exp int) int {
+	result := 1
+	for exp > 0 {
+		if exp%2 == 1 {
+			result = (result * base)
+		}
+		base = (base * base)
+		exp /= 2
+	}
+	return result
+}
+
+func modPow(base, exp, mod int) int {
 	result := 1
 	for exp > 0 {
 		if exp%2 == 1 {
