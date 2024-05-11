@@ -3,6 +3,7 @@ package main
 import (
 	"bufio"
 	"fmt"
+	"math/big"
 	"os"
 	"sort"
 	"strconv"
@@ -57,6 +58,10 @@ func input() string {
 		}
 	}
 	return string(buf)
+}
+
+func getBigInt(x int64) *big.Int {
+	return big.NewInt(x)
 }
 
 // string <-> []string
