@@ -32,7 +32,9 @@ export GOROOT=/usr/local/go
 export GOPATH=$HOME/go
 export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
 
-export PATH=/Users/yuto.hara/.nimble/bin:$PATH
+export PATH="~/.nimble/bin:$PATH"
+
+export PATH="$PATH:~/Library/Application Support/Coursier/bin"
 
 # for direnv
 export EDITOR=vim
