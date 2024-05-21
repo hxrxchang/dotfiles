@@ -2,6 +2,7 @@ package main
 
 import (
 	"bufio"
+	"container/heap"
 	"fmt"
 	"math/big"
 	"os"
@@ -208,24 +209,42 @@ func (s *Set[V]) has(v V) bool {
 // heap (priority queue)
 // 1.21 以上になったら comp.Ordered に変更する
 type Heap[T constraints.Ordered] []T
-func (h Heap[T]) len() int {
+func (h Heap[T]) Len() int {
 	return len(h)
 }
-func (h Heap[T]) less(i, j int) bool {
+func (h Heap[T]) Less(i, j int) bool {
 	return h[i] < h[j]
 }
-func (h Heap[T]) swap(i, j int) {
+func (h Heap[T]) Swap(i, j int) {
 	h[i], h[j] = h[j], h[i]
 }
-func (h *Heap[T]) push(x T) {
-	*h = append(*h, x)
+func (h *Heap[T]) Push(x any) {
+	*h = append(*h, x.(T))
 }
-func (h *Heap[T]) pop() interface{} {
+func (h *Heap[T]) Pop() interface{} {
 	old := *h
 	n := len(old)
 	x := old[n-1]
 	*h = old[0 : n-1]
 	return x
+}
+
+type MyHeap[T constraints.Ordered] struct {
+	heap Heap[T]
+}
+func newMyHeap[T constraints.Ordered]() *MyHeap[T] {
+	myHeap := &MyHeap[T]{}
+	heap.Init(&myHeap.heap)
+	return myHeap
+}
+func (h *MyHeap[T]) push(x T) {
+	heap.Push(&h.heap, x)
+}
+func (h *MyHeap[T]) pop() T {
+	return heap.Pop(&h.heap).(T)
+}
+func (h *MyHeap[T]) len() int {
+	return h.heap.Len()
 }
 
 func sortSlice[T constraints.Ordered](slice []T) []T {
