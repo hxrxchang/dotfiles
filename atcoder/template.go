@@ -268,6 +268,16 @@ func reverse[T constraints.Ordered](slice []T) []T {
 	return copiedSlice
 }
 
+// 1.22 になったら slice.Contains を使用する
+func sliceContains[T comparable](slice []T, v T) bool {
+	for _, e := range slice {
+		if e == v {
+			return true
+		}
+	}
+	return false
+}
+
 // queue
 type Queue[T any] struct {
 	values []T
