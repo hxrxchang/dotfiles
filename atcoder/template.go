@@ -208,30 +208,30 @@ func (s *Set[V]) has(v V) bool {
 	return ok
 }
 
-// ordered set
-type OrderedSet[T comparator.Ordered] struct {
+// sorted set
+type SortedSet[T comparator.Ordered] struct {
 	values *set.Set[T]
 }
-func newOrderdSet[T comparator.Ordered]() *OrderedSet[T] {
+func newSortedSet[T comparator.Ordered]() *SortedSet[T] {
 	var comparatorFn comparator.Comparator[T] = comparator.OrderedTypeCmp[T]
-	return &OrderedSet[T]{values: set.New[T](comparatorFn)}
+	return &SortedSet[T]{values: set.New[T](comparatorFn)}
 }
-func (s *OrderedSet[T]) add(v T) {
+func (s *SortedSet[T]) add(v T) {
 	s.values.Insert(v)
 }
-func (s *OrderedSet[T]) remove(v T) {
+func (s *SortedSet[T]) remove(v T) {
 	s.values.Erase(v)
 }
-func (s *OrderedSet[T]) has(v T) bool {
+func (s *SortedSet[T]) has(v T) bool {
 	return s.values.Contains(v)
 }
-func (s *OrderedSet[T]) size() int {
+func (s *SortedSet[T]) size() int {
 	return s.values.Size()
 }
-func (s *OrderedSet[T]) lowerBound(v T) *set.SetIterator[T] {
+func (s *SortedSet[T]) lowerBound(v T) *set.SetIterator[T] {
 	return s.values.LowerBound(v)
 }
-func (s *OrderedSet[T]) upperBound(v T) *set.SetIterator[T] {
+func (s *SortedSet[T]) upperBound(v T) *set.SetIterator[T] {
 	return s.values.UpperBound(v)
 }
 
