@@ -488,6 +488,33 @@ func getComb(n, k int) (c chan []int) {
 	return
 }
 
+// n以下の素数を列挙
+func primeNumbers(n int) []int {
+	isPrime := make([]bool, n+1)
+	for i := 0; i <= n; i++ {
+		isPrime[i] = true
+	}
+	isPrime[0] = false
+	isPrime[1] = false
+
+	for i := 2; i <= n; i++ {
+		if isPrime[i] {
+			for j := i * 2; j <= n; j += i {
+				isPrime[j] = false
+			}
+		}
+	}
+
+	primes := make([]int, 0)
+	for i, b := range isPrime {
+		if b {
+			primes = append(primes, i)
+		}
+	}
+
+	return primes
+}
+
 
 // binary search
 func bisectLeft(slice []int, value int) int {
