@@ -430,7 +430,15 @@ func nextPermutation(x sort.Interface) bool {
 
 // 組み合わせ
 // スライスからk個選ぶ組み合わせを列挙
-func getCombinations(list []int, k int) (c chan []int) {
+func getCombinations(list []int, k int) [][]int {
+	res := make([][]int, 0)
+	combs := getCombinationsCh(list, k)
+	for comb := range combs {
+		res = append(res, comb)
+	}
+	return res
+}
+func getCombinationsCh(list []int, k int) (c chan []int) {
 	c = make(chan []int, 2)
 	n := len(list)
 
@@ -459,7 +467,15 @@ func getCombinations(list []int, k int) (c chan []int) {
 }
 
 // nCr
-func getComb(n, k int) (c chan []int) {
+func getComb(n, k int) [][]int {
+	res := make([][]int, 0)
+	combs := getCombCh(n, k)
+	for comb := range combs {
+		res = append(res, comb)
+	}
+	return res
+}
+func getCombCh(n, k int) (c chan []int) {
 	pat := make([]int, k)
 	c = make(chan []int, 1)
 
