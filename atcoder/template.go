@@ -531,6 +531,25 @@ func primeNumbers(n int) []int {
 	return primes
 }
 
+// bit全探索
+func generateSubsets[T any](elements []T) [][]T {
+	n := len(elements)
+	totalCombinations := 1 << n
+	subsets := make([][]T, totalCombinations)
+
+	for i := 0; i < totalCombinations; i++ {
+		var subset []T
+		for j := 0; j < n; j++ {
+			if i&(1<<j) != 0 {
+				subset = append(subset, elements[j])
+			}
+		}
+		subsets[i] = subset
+	}
+
+	return subsets
+}
+
 
 // binary search
 func bisectLeft(slice []int, value int) int {
