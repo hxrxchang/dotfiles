@@ -524,4 +524,7 @@ func bisectRight(slice []int, value int) int {
 	return sort.Search(len(slice), func(i int) bool { return slice[i] > value })
 }
 
-
+// sliceを一行で出力
+func printSlice[T any](data []T) {
+	fmt.Println(strings.Trim(fmt.Sprint(data), "[]"))
+}
