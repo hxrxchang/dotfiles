@@ -307,6 +307,16 @@ func sliceContains[T comparable](slice []T, v T) bool {
 	return false
 }
 
+// 0~n-1までのスライスを作成
+func rangeSlice(n int) []int {
+	slice := make([]int, n)
+	for i := 0; i < n; i++ {
+		slice[i] = i
+	}
+	return slice
+}
+
+
 // queue
 type Queue[T any] struct {
 	values []T
