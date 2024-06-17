@@ -316,6 +316,15 @@ func rangeSlice(n int) []int {
 	return slice
 }
 
+// 2次元スライスのコピー
+func copy2DSlice(original [][]int) [][]int {
+    newSlice := make([][]int, len(original))
+    for i := range original {
+        newSlice[i] = make([]int, len(original[i]))
+        copy(newSlice[i], original[i])
+    }
+    return newSlice
+}
 
 // queue
 type Queue[T any] struct {
