@@ -495,41 +495,14 @@ func getCombinationsCh(list []int, k int) (c chan []int) {
 }
 
 // nCr
-func getComb(n, k int) [][]int {
-	res := make([][]int, 0)
-	combs := getCombCh(n, k)
-	for comb := range combs {
-		res = append(res, comb)
+func getComb(n, k int) int {
+	numerator := 1
+	denominator := 1
+	for i := 0; i < k; i++ {
+		numerator *= n - i
+		denominator *= i + 1
 	}
-	return res
-}
-func getCombCh(n, k int) (c chan []int) {
-	pat := make([]int, k)
-	c = make(chan []int, 1)
-
-	var rec func(pos, start int)
-
-	rec = func(pos, start int) {
-		// k個選んでいれば、それを出力する
-		if pos == k {
-			tmp := make([]int, k)
-			copy(tmp, pat)
-			c <- tmp
-			return
-		}
-		// 選んでいない場合は、追加して再帰
-		// 次に選べるのは、startからn-1までの値のいずれか
-		for i := start; i < n; i++ {
-			pat[pos] = i    // posに選んだ数字をセットして
-			rec(pos+1, i+1) // pos, startを１つずつ進める
-		}
-	}
-	go func() {
-		defer close(c)
-		rec(0, 0)
-	}()
-
-	return
+	return numerator / denominator
 }
 
 // n以下の素数を列挙
