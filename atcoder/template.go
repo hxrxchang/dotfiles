@@ -326,6 +326,15 @@ func copy2DSlice(original [][]int) [][]int {
     return newSlice
 }
 
+// スライスを文字列に変換
+func sliceToStr[T any](data []T, separator string) string {
+	var strSlice []string
+    for _, v := range data {
+        strSlice = append(strSlice, fmt.Sprintf("%v", v))
+    }
+    return strings.Join(strSlice, separator)
+}
+
 // queue
 type Queue[T any] struct {
 	values []T
