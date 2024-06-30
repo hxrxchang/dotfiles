@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"container/heap"
 	"fmt"
+	"math"
 	"math/big"
 	"os"
 	"sort"
@@ -17,7 +18,7 @@ import (
 
 const BUFSIZE = 10000000
 const MOD = 1000000007
-const BIGGEST = int(1e18)
+const BIGGEST = math.MaxInt64
 var rdr *bufio.Reader
 
 func main() {
