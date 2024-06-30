@@ -235,6 +235,12 @@ func (s *SortedSet[T]) upperBound(v T) *set.SetIterator[T] {
 	return s.values.UpperBound(v)
 }
 
+// multiset
+func newMultiset[T comparator.Ordered]() *set.MultiSet[T] {
+	var comparatorFn comparator.Comparator[T] = comparator.OrderedTypeCmp[T]
+	return set.NewMultiSet[T](comparatorFn, set.WithGoroutineSafe())
+}
+
 // heap (priority queue)
 // 1.21 以上になったら cmp.Ordered に変更する
 type Heap[T constraints.Ordered] []T
