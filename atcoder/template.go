@@ -294,7 +294,7 @@ func sortSlice[T constraints.Ordered](slice []T) []T {
     return copiedSlice
 }
 
-func reverse[T constraints.Ordered](slice []T) []T {
+func reverse[T any](slice []T) []T {
 	copiedSlice := make([]T, len(slice))
 	copy(copiedSlice, slice)
 
