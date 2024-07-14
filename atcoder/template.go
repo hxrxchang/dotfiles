@@ -352,6 +352,9 @@ func newQueue[T any]() *Queue[T] {
 func (q *Queue[T]) push(v T) {
 	q.values = append(q.values, v)
 }
+func (q *Queue[T]) pushLeft(v T) {
+	q.values = append([]T{v}, q.values...)
+}
 func (q *Queue[T]) popLeft() T {
 	v := q.values[0]
 	q.values = q.values[1:]
