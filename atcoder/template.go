@@ -11,6 +11,7 @@ import (
 	"strconv"
 	"strings"
 
+	"github.com/liyue201/gostl/ds/deque"
 	"github.com/liyue201/gostl/ds/set"
 	"github.com/liyue201/gostl/utils/comparator"
 	"golang.org/x/exp/constraints"
@@ -343,40 +344,10 @@ func sliceToStr[T any](data []T, separator string) string {
 }
 
 // queue
-type Queue[T any] struct {
-	values []T
+func newQueue[T any]() *deque.Deque[T] {
+	return deque.New[T]()
 }
-func newQueue[T any]() *Queue[T] {
-	return &Queue[T]{}
-}
-func (q *Queue[T]) push(v T) {
-	q.values = append(q.values, v)
-}
-func (q *Queue[T]) pushLeft(v T) {
-	q.values = append([]T{v}, q.values...)
-}
-func (q *Queue[T]) popLeft() T {
-	v := q.values[0]
-	q.values = q.values[1:]
-	return v
-}
-func (q *Queue[T]) pop() T {
-	v := q.values[len(q.values)-1]
-	q.values = q.values[:len(q.values)-1]
-	return v
-}
-func (q *Queue[T]) front() T {
-	return q.values[0]
-}
-func (q *Queue[T]) Back() T {
-	return q.values[len(q.values)-1]
-}
-func (q *Queue[T]) size() int {
-	return len(q.values)
-}
-func (q *Queue[T]) empty() bool {
-	return len(q.values) == 0
-}
+
 
 // UnionFind
 type UnionFind struct {
