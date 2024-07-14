@@ -368,6 +368,9 @@ func (q *Queue[T]) pop() T {
 func (q *Queue[T]) front() T {
 	return q.values[0]
 }
+func (q *Queue[T]) Back() T {
+	return q.values[len(q.values)-1]
+}
 func (q *Queue[T]) size() int {
 	return len(q.values)
 }
