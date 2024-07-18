@@ -15,6 +15,7 @@ import (
 	"github.com/liyue201/gostl/ds/set"
 	"github.com/liyue201/gostl/utils/comparator"
 	"golang.org/x/exp/constraints"
+	"golang.org/x/exp/maps"
 )
 
 const BUFSIZE = 10000000
@@ -199,15 +200,18 @@ type Set[V comparable] struct {
 func newSet[V comparable]() *Set[V] {
 	return &Set[V]{values: make(map[V]struct{})}
 }
-func (s *Set[V]) add(v V) {
+func (s *Set[V]) Add(v V) {
 	s.values[v] = struct{}{}
 }
-func (s *Set[V]) remove(v V) {
+func (s *Set[V]) Remove(v V) {
 	delete(s.values, v)
 }
-func (s *Set[V]) has(v V) bool {
+func (s *Set[V]) Has(v V) bool {
 	_, ok := s.values[v]
 	return ok
+}
+func (s *Set[V]) Values() []V {
+	return maps.Keys(s.values)
 }
 
 // sorted set
