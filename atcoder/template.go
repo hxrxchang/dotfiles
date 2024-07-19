@@ -595,7 +595,7 @@ func (segtree *SegmentTree[T]) query(begin, end, idx, a, b int) T {
 	v2 := segtree.query(begin, end, idx*2+2, (a+b)/2, b)
 	return segtree.op(v1, v2)
 }
-
+// endは閉区間であることに注意
 func (segtree *SegmentTree[T]) Query(begin, end int) T {
 	return segtree.query(begin, end, 0, 0, segtree.n)
 }
