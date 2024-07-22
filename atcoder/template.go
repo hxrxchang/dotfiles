@@ -328,6 +328,15 @@ func rangeSlice(n int) []int {
 	return slice
 }
 
+// 開区間でstart~endまでのスライスを作成
+func rangeSlice2(start, end int) []int {
+	slice := make([]int, end - start + 1)
+	for i := start; i <= end; i++ {
+		slice[i - start] = i
+	}
+	return slice
+}
+
 // 2次元スライスのコピー
 func copy2DSlice(original [][]int) [][]int {
     newSlice := make([][]int, len(original))
