@@ -614,3 +614,21 @@ func (segtree *SegmentTree[T]) Query(begin, end int) T {
 func printSlice[T any](data []T) {
 	fmt.Println(strings.Trim(fmt.Sprint(data), "[]"))
 }
+
+// 部分文字列判定
+// 非連続の部分文字列も対応
+// isSubstring("abcd", "ad") -> true
+func isSubstring(s, t string) bool {
+	ok := false
+	iter := 0
+	for i := 0; i < len(s); i++ {
+		if s[i] == t[iter] {
+			iter++
+		}
+		if iter == len(t) {
+			ok = true
+			break
+		}
+	}
+	return ok
+}
