@@ -637,7 +637,12 @@ func isSubstring(s, t string) bool {
 //　幾何ゾーン
 
 // 2点間の距離の2乗
-// 平方根を取ると距離になる
+// 平方根を取ると距離になるが、誤差が出るので距離の比較は距離の2乗で行う
 func distanceSquared(x1, y1, x2, y2 int) int {
 	return pow(x1-x2, 2) + pow(y1-y2, 2)
+}
+
+// 3点が同一直線上にあるか判定
+func isOnSameLine(x1, y1, x2, y2, x3, y3 int) bool {
+	return (x1-x2)*(y2-y3) == (y1-y2)*(x2-x3)
 }
