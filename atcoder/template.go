@@ -101,6 +101,15 @@ func i2s(i int) string {
 	return strconv.Itoa(i)
 }
 
+func isPalindrome(s string) bool {
+	for i := 0; i < len(s)/2; i++ {
+		if s[i] != s[len(s)-1-i] {
+			return false
+		}
+	}
+	return true
+}
+
 // bool <-> int
 func b2i(b bool) int {
 	if b {
