@@ -213,6 +213,9 @@ func (s *Set[V]) Has(v V) bool {
 func (s *Set[V]) Values() []V {
 	return maps.Keys(s.values)
 }
+func (s *Set[V]) Size() int {
+	return len(s.values)
+}
 
 // sorted set
 type SortedSet[T comparator.Ordered] struct {
