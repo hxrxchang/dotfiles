@@ -349,6 +349,15 @@ func rangeSlice2(start, end int) []int {
 	return slice
 }
 
+// intのsliceを0indexに変換
+func zeroIndexedSlice(origin []int) []int {
+	slice2 := make([]int, len(origin))
+	for i, v := range origin {
+		slice2[i] = v - 1
+	}
+	return slice2
+}
+
 // 2次元スライスのコピー
 func copy2DSlice(original [][]int) [][]int {
     newSlice := make([][]int, len(original))
