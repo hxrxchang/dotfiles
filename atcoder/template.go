@@ -181,6 +181,11 @@ func modPow(base, exp, mod int) int {
 	return result
 }
 
+// intのまま計算できるように
+func sqrt(x int) int {
+	return int(math.Sqrt(float64(x)))
+}
+
 func gcd(v1, v2 int) int {
 	if v1 > v2 {
 		v1, v2 = v2, v1
@@ -525,6 +530,20 @@ func getComb(n, k int) int {
 
 // n以下の素数を列挙
 func primeNumbers(n int) []int {
+	isPrime := getIsPrime(n)
+
+	primes := make([]int, 0)
+	for i, b := range isPrime {
+		if b {
+			primes = append(primes, i)
+		}
+	}
+
+	return primes
+}
+
+// n以下の数字がそれぞれ素数かどうかを列挙
+func getIsPrime(n int) []bool {
 	isPrime := make([]bool, n+1)
 	for i := 0; i <= n; i++ {
 		isPrime[i] = true
@@ -539,15 +558,7 @@ func primeNumbers(n int) []int {
 			}
 		}
 	}
-
-	primes := make([]int, 0)
-	for i, b := range isPrime {
-		if b {
-			primes = append(primes, i)
-		}
-	}
-
-	return primes
+	return isPrime
 }
 
 // bit全探索
