@@ -27,6 +27,7 @@ eval "$(rbenv init -)"
 
 export PATH="/usr/local/opt/libiconv/bin:$PATH"
 export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
+export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
 
 export GOROOT=/usr/local/go
 export GOPATH=$HOME/go
@@ -35,6 +36,7 @@ export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
 export PATH="~/.nimble/bin:$PATH"
 
 export PATH="$PATH:~/Library/Application Support/Coursier/bin"
+
 
 # for direnv
 export EDITOR=vim
