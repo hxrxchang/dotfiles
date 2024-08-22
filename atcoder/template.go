@@ -90,9 +90,17 @@ func mapToIntSlice(input string) []int {
 
 // string <-> int
 func s2i(s string) int {
-	v, ok := strconv.Atoi(s)
-	if ok != nil {
+	v, err := strconv.Atoi(s)
+	if err != nil {
 		panic("Faild : " + s + " can't convert to int")
+	}
+	return v
+}
+
+func s2float64(s string) float64 {
+	v, err := strconv.ParseFloat(s, 64)
+	if err != nil {
+		panic("Faild : " + s + " can't convert to float64")
 	}
 	return v
 }
