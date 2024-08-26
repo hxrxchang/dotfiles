@@ -681,6 +681,59 @@ func warshallFloyd(graph [][]int) [][]int {
 	return dist
 }
 
+// ダイクストラ法
+func dijkstra(graph [][]int, start int) []djkstraNode {
+	n := len(graph)
+	dist := make([]djkstraNode, n)
+	for i := range dist {
+		dist[i] = djkstraNode{value: BIGGEST, steps: math.MaxInt32}
+	}
+	dist[start] = djkstraNode{value: 0, steps: 0}
+
+	pq := &djkstraPriorityQueue{}
+	heap.Init(pq)
+	heap.Push(pq, djkstraNode{value: 0, steps: 0})
+
+	for pq.Len() > 0 {
+		u := heap.Pop(pq).(djkstraNode)
+		for v, weight := range graph[u.steps] {
+			if weight > 0 {
+				newSteps := u.steps + 1
+				newValue := u.value + weight
+				if dist[v].steps > newSteps || (dist[v].steps == newSteps && dist[v].value > newValue) {
+					dist[v] = djkstraNode{value: newValue, steps: newSteps}
+					heap.Push(pq, djkstraNode{value: newValue, steps: v})
+				}
+			}
+		}
+	}
+
+	return dist
+}
+type djkstraNode struct {
+	value int
+	steps int
+}
+type djkstraPriorityQueue []djkstraNode
+func (pq djkstraPriorityQueue) Len() int { return len(pq) }
+func (pq djkstraPriorityQueue) Less(i, j int) bool {
+	if pq[i].steps == pq[j].steps {
+		return pq[i].value < pq[j].value
+	}
+	return pq[i].steps < pq[j].steps
+}
+func (pq djkstraPriorityQueue) Swap(i, j int) { pq[i], pq[j] = pq[j], pq[i] }
+func (pq *djkstraPriorityQueue) Push(x interface{}) {
+	*pq = append(*pq, x.(djkstraNode))
+}
+func (pq *djkstraPriorityQueue) Pop() interface{} {
+	old := *pq
+	n := len(old)
+	item := old[n-1]
+	*pq = old[0 : n-1]
+	return item
+}
+
 
 // sliceを一行で出力
 func printSlice[T any](data []T) {
