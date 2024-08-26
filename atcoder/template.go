@@ -194,6 +194,7 @@ func sqrt(x int) int {
 	return int(math.Sqrt(float64(x)))
 }
 
+// 最大公約数
 func gcd(v1, v2 int) int {
 	if v1 > v2 {
 		v1, v2 = v2, v1
@@ -204,6 +205,7 @@ func gcd(v1, v2 int) int {
 	return v2
 }
 
+// 最小公倍数
 func lcm(v1, v2 int) int {
 	return v1 * v2 / gcd(v1, v2)
 }
