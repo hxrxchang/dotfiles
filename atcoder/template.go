@@ -682,27 +682,30 @@ func warshallFloyd(graph [][]int) [][]int {
 }
 
 // ダイクストラ法
-func dijkstra(graph [][]int, start int) []djkstraNode {
+func dijkstra(graph [][]int, start int) []int {
 	n := len(graph)
-	dist := make([]djkstraNode, n)
+	dist := make([]int, n)
 	for i := range dist {
-		dist[i] = djkstraNode{value: BIGGEST, steps: math.MaxInt32}
+		dist[i] = BIGGEST
 	}
-	dist[start] = djkstraNode{value: 0, steps: 0}
+	dist[start] = 0
 
-	pq := &djkstraPriorityQueue{}
+	pq := &dijkstraPriorityQueue{}
 	heap.Init(pq)
-	heap.Push(pq, djkstraNode{value: 0, steps: 0})
+	heap.Push(pq, &dijkstraItem{vertex: start, dist: 0})
 
 	for pq.Len() > 0 {
-		u := heap.Pop(pq).(djkstraNode)
-		for v, weight := range graph[u.steps] {
-			if weight > 0 {
-				newSteps := u.steps + 1
-				newValue := u.value + weight
-				if dist[v].steps > newSteps || (dist[v].steps == newSteps && dist[v].value > newValue) {
-					dist[v] = djkstraNode{value: newValue, steps: newSteps}
-					heap.Push(pq, djkstraNode{value: newValue, steps: v})
+		u := heap.Pop(pq).(*dijkstraItem)
+		if u.dist > dist[u.vertex] {
+			continue
+		}
+
+		for v := 0; v < n; v++ {
+			if graph[u.vertex][v] != BIGGEST {
+				alt := u.dist + graph[u.vertex][v]
+				if alt < dist[v] {
+					dist[v] = alt
+					heap.Push(pq, &dijkstraItem{vertex: v, dist: alt})
 				}
 			}
 		}
@@ -710,30 +713,28 @@ func dijkstra(graph [][]int, start int) []djkstraNode {
 
 	return dist
 }
-type djkstraNode struct {
-	value int
-	steps int
+type dijkstraItem struct {
+	vertex int
+	dist   int
 }
-type djkstraPriorityQueue []djkstraNode
-func (pq djkstraPriorityQueue) Len() int { return len(pq) }
-func (pq djkstraPriorityQueue) Less(i, j int) bool {
-	if pq[i].steps == pq[j].steps {
-		return pq[i].value < pq[j].value
-	}
-	return pq[i].steps < pq[j].steps
+type dijkstraPriorityQueue []*dijkstraItem
+func (pq dijkstraPriorityQueue) Len() int { return len(pq) }
+func (pq dijkstraPriorityQueue) Less(i, j int) bool {
+	return pq[i].dist < pq[j].dist
 }
-func (pq djkstraPriorityQueue) Swap(i, j int) { pq[i], pq[j] = pq[j], pq[i] }
-func (pq *djkstraPriorityQueue) Push(x interface{}) {
-	*pq = append(*pq, x.(djkstraNode))
+func (pq dijkstraPriorityQueue) Swap(i, j int) {
+	pq[i], pq[j] = pq[j], pq[i]
 }
-func (pq *djkstraPriorityQueue) Pop() interface{} {
+func (pq *dijkstraPriorityQueue) Push(x interface{}) {
+	*pq = append(*pq, x.(*dijkstraItem))
+}
+func (pq *dijkstraPriorityQueue) Pop() interface{} {
 	old := *pq
 	n := len(old)
 	item := old[n-1]
 	*pq = old[0 : n-1]
 	return item
 }
-
 
 // sliceを一行で出力
 func printSlice[T any](data []T) {
