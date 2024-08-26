@@ -651,6 +651,36 @@ func (segtree *SegmentTree[T]) Query(begin, end int) T {
 	return segtree.query(begin, end, 0, 0, segtree.n)
 }
 
+// ワーシャルフロイド法
+func warshallFloyd(graph [][]int) [][]int {
+	n := len(graph)
+	dist := make([][]int, n)
+	for i := range dist {
+		dist[i] = make([]int, n)
+		for j := range dist[i] {
+			if i == j {
+				dist[i][j] = 0
+			} else if graph[i][j] == 0 {
+				dist[i][j] = BIGGEST
+			} else {
+				dist[i][j] = graph[i][j]
+			}
+		}
+	}
+
+	for i := 0; i < n; i++ {
+		for j := 0; j < n; j++ {
+			for k := 0; k < n; k++ {
+				if dist[j][k] > dist[j][i]+dist[i][k] {
+					dist[j][k] = dist[j][i] + dist[i][k]
+				}
+			}
+		}
+	}
+
+	return dist
+}
+
 
 // sliceを一行で出力
 func printSlice[T any](data []T) {
