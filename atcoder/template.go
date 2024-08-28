@@ -736,6 +736,54 @@ func (pq *dijkstraPriorityQueue) Pop() interface{} {
 	return item
 }
 
+// ローリングハッシュ
+func NewRollingHash(S string) *RollingHash {
+	const base1, base2 = 1007, 2009
+	const mod1, mod2 = 1000000007, 1000000009
+
+	n := len(S)
+	hash1 := make([]int64, n+1)
+	hash2 := make([]int64, n+1)
+	power1 := make([]int64, n+1)
+	power2 := make([]int64, n+1)
+	power1[0], power2[0] = 1, 1
+
+	for i := 0; i < n; i++ {
+		hash1[i+1] = (hash1[i]*base1 + int64(S[i])) % mod1
+		hash2[i+1] = (hash2[i]*base2 + int64(S[i])) % mod2
+		power1[i+1] = (power1[i] * base1) % mod1
+		power2[i+1] = (power2[i] * base2) % mod2
+	}
+
+	return &RollingHash{
+		base1:  base1,
+		base2:  base2,
+		mod1:   mod1,
+		mod2:   mod2,
+		hash1:  hash1,
+		hash2:  hash2,
+		power1: power1,
+		power2: power2,
+	}
+}
+type RollingHash struct {
+	base1, base2 int64
+	mod1, mod2   int64
+	hash1, hash2 []int64
+	power1, power2 []int64
+}
+type RollingHashPair struct {
+	Hash1 int64
+	Hash2 int64
+}
+// S[left:right] のハッシュ値を取得
+func (rh *RollingHash) Get(l, r int) RollingHashPair {
+	res1 := (rh.hash1[r] - rh.hash1[l]*rh.power1[r-l]%rh.mod1 + rh.mod1) % rh.mod1
+	res2 := (rh.hash2[r] - rh.hash2[l]*rh.power2[r-l]%rh.mod2 + rh.mod2) % rh.mod2
+	return RollingHashPair{res1, res2}
+}
+
+
 // sliceを一行で出力
 func printSlice[T any](data []T) {
 	fmt.Println(strings.Trim(fmt.Sprint(data), "[]"))
