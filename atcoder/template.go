@@ -682,7 +682,7 @@ func warshallFloyd(graph [][]int) [][]int {
 }
 
 // ダイクストラ法
-func dijkstra(graph [][]int, start int) []int {
+func dijkstra(graph [][]dijkstraItem, start int) []int {
 	n := len(graph)
 	dist := make([]int, n)
 	for i := range dist {
@@ -692,21 +692,20 @@ func dijkstra(graph [][]int, start int) []int {
 
 	pq := &dijkstraPriorityQueue{}
 	heap.Init(pq)
-	heap.Push(pq, &dijkstraItem{vertex: start, dist: 0})
+	heap.Push(pq, &dijkstraItem{node: start, dist: 0})
 
 	for pq.Len() > 0 {
 		u := heap.Pop(pq).(*dijkstraItem)
-		if u.dist > dist[u.vertex] {
+		if u.dist > dist[u.node] {
 			continue
 		}
 
-		for v := 0; v < n; v++ {
-			if graph[u.vertex][v] != BIGGEST {
-				alt := u.dist + graph[u.vertex][v]
-				if alt < dist[v] {
-					dist[v] = alt
-					heap.Push(pq, &dijkstraItem{vertex: v, dist: alt})
-				}
+		for _, edge := range graph[u.node] {
+			v := edge.node
+			alt := u.dist + edge.dist
+			if alt < dist[v] {
+				dist[v] = alt
+				heap.Push(pq, &dijkstraItem{node: v, dist: alt})
 			}
 		}
 	}
@@ -714,7 +713,7 @@ func dijkstra(graph [][]int, start int) []int {
 	return dist
 }
 type dijkstraItem struct {
-	vertex int
+	node int
 	dist   int
 }
 type dijkstraPriorityQueue []*dijkstraItem
