@@ -689,28 +689,29 @@ func gridBfs(height, width int, nextNodes map[GridBfsNode][]GridBfsNode, start G
 		}
 	}
 
-	distances[start.x][start.y] = 0
+	distances[start.y][start.x] = 0
 
 	que := newQueue[Item]()
-	que.PushBack(Item{GridBfsNode{0, 0}, 0})
+	que.PushBack(Item{GridBfsNode{start.y, start.x}, 0})
 
 	for que.Size() > 0 {
 		current := que.PopFront()
-		x, y, dist := current.item.x, current.item.y, current.dist
-		for _, next := range nextNodes[GridBfsNode{x, y}] {
-			if next.x < 0 || width <= next.x || next.y < 0 || height <= next.y {
+		y, x, dist := current.item.y, current.item.x, current.dist
+		for _, next := range nextNodes[GridBfsNode{y, x}] {
+			if next.y < 0 || next.y >= height || next.x < 0 || next.x >= width {
 				continue
 			}
-			if distances[next.x][next.y] != -1 {
+			if distances[next.y][next.x] != -1 {
 				continue
 			}
-			distances[next.x][next.y] = dist + 1
+			distances[next.y][next.x] = dist + 1
 			que.PushBack(Item{next, dist + 1})
 		}
 	}
 
 	return distances
 }
+
 
 // ワーシャルフロイド法
 func warshallFloyd(graph [][]int) [][]int {
