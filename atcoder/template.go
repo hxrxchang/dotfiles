@@ -21,6 +21,7 @@ import (
 const BUFSIZE = 10000000
 const MOD = 1000000007
 const BIGGEST = math.MaxInt64
+const MINIMUM = math.MinInt64
 var rdr *bufio.Reader
 
 func main() {
