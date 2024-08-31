@@ -651,6 +651,67 @@ func (segtree *SegmentTree[T]) Query(begin, end int) T {
 	return segtree.query(begin, end, 0, 0, segtree.n)
 }
 
+// 単純なgraphのDFS
+func graphBfs(nextNodes [][]int, size, start int) []int {
+	que := newQueue[int]()
+	distances := make([]int, size)
+	for i := 1; i < size; i++ {
+		distances[i] = -1
+	}
+	que.PushBack(start)
+	for que.Size() > 0 {
+		v := que.PopFront()
+		for _, next := range nextNodes[v] {
+			if distances[next] != -1 {
+				continue
+			}
+			distances[next] = distances[v] + 1
+			que.PushBack(next)
+		}
+	}
+	return distances
+}
+
+// gridのDFS
+type GridBfsNode struct {
+	y, x int
+}
+func gridBfs(height, width int, nextNodes map[GridBfsNode][]GridBfsNode, start GridBfsNode) [][]int {
+	type Item struct {
+		item GridBfsNode
+		dist int
+	}
+	distances := make([][]int, height)
+	for i := 0; i < height; i++ {
+		distances[i] = make([]int, width)
+		for j := 0; j < width; j++ {
+			distances[i][j] = -1
+		}
+	}
+
+	distances[start.x][start.y] = 0
+
+	que := newQueue[Item]()
+	que.PushBack(Item{GridBfsNode{0, 0}, 0})
+
+	for que.Size() > 0 {
+		current := que.PopFront()
+		x, y, dist := current.item.x, current.item.y, current.dist
+		for _, next := range nextNodes[GridBfsNode{x, y}] {
+			if next.x < 0 || width <= next.x || next.y < 0 || height <= next.y {
+				continue
+			}
+			if distances[next.x][next.y] != -1 {
+				continue
+			}
+			distances[next.x][next.y] = dist + 1
+			que.PushBack(Item{next, dist + 1})
+		}
+	}
+
+	return distances
+}
+
 // ワーシャルフロイド法
 func warshallFloyd(graph [][]int) [][]int {
 	n := len(graph)
