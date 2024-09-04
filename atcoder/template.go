@@ -317,26 +317,23 @@ func (h *MyHeap[T]) len() int {
 }
 
 // tuple heap
-type TupleHeapItem struct {
-	a, b int
-}
-type TupleHeap []TupleHeapItem
-func (th TupleHeap) Len() int {
+type TupleHeap[T constraints.Ordered] [][]T
+func (th TupleHeap[T]) Len() int {
 	return len(th)
 }
-func (th TupleHeap) Less(i, j int) bool {
-	if th[i].a == th[j].a {
-		return th[i].b < th[j].b
+func (th TupleHeap[T]) Less(i, j int) bool {
+	if th[i][0] == th[j][0] {
+		return th[i][1] < th[j][1]
 	}
-	return th[i].a < th[j].a
+	return th[i][0] < th[j][0]
 }
-func (th TupleHeap) Swap(i, j int) {
+func (th TupleHeap[T]) Swap(i, j int) {
 	th[i], th[j] = th[j], th[i]
 }
-func (th *TupleHeap) Push(x any) {
-	*th = append(*th, x.(TupleHeapItem))
+func (th *TupleHeap[T]) Push(x any) {
+	*th = append(*th, x.([]T))
 }
-func (h *TupleHeap) Pop() interface{} {
+func (h *TupleHeap[T]) Pop() interface{} {
 	old := *h
 	n := len(old)
 	x := old[n-1]
@@ -344,23 +341,24 @@ func (h *TupleHeap) Pop() interface{} {
 	return x
 }
 
-type MyTupleHeap struct {
-	heap TupleHeap
+type MyTupleHeap[T constraints.Ordered] struct {
+	heap TupleHeap[T]
 }
-func newMyTupleHeap() *MyTupleHeap {
-	myTupleHeap := &MyTupleHeap{}
+func newMyTupleHeap[T constraints.Ordered]() *MyTupleHeap[T] {
+	myTupleHeap := &MyTupleHeap[T]{}
 	heap.Init(&myTupleHeap.heap)
 	return myTupleHeap
 }
-func (h *MyTupleHeap) push(x TupleHeapItem) {
+func (h *MyTupleHeap[T]) push(x []T) {
 	heap.Push(&h.heap, x)
 }
-func (h *MyTupleHeap) pop() TupleHeapItem {
-	return heap.Pop(&h.heap).(TupleHeapItem)
+func (h *MyTupleHeap[T]) pop() []T {
+	return heap.Pop(&h.heap).([]T)
 }
-func (h *MyTupleHeap) len() int {
+func (h *MyTupleHeap[T]) len() int {
 	return h.heap.Len()
 }
+
 
 func sortSlice[T constraints.Ordered](slice []T) []T {
     copiedSlice := make([]T, len(slice))
