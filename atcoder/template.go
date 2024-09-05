@@ -322,10 +322,7 @@ func (th TupleHeap[T]) Len() int {
 	return len(th)
 }
 func (th TupleHeap[T]) Less(i, j int) bool {
-	if th[i][0] == th[j][0] {
-		return th[i][1] < th[j][1]
-	}
-	return th[i][0] < th[j][0]
+	return th.compareSlices(i, j, 0)
 }
 func (th TupleHeap[T]) Swap(i, j int) {
 	th[i], th[j] = th[j], th[i]
@@ -339,6 +336,26 @@ func (h *TupleHeap[T]) Pop() interface{} {
 	x := old[n-1]
 	*h = old[0 : n-1]
 	return x
+}
+func (th TupleHeap[T]) compareSlices(i, j, idx int) bool {
+	a := th[i]
+	b := th[j]
+	// 片方のスライスが他方よりも短ければ、その時点で比較を終了
+	if len(a) <= idx && len(b) > idx {
+		return true
+	} else if len(a) > idx && len(b) <= idx {
+		return false
+	} else if len(a) <= idx && len(b) <= idx {
+		return false // どちらも同じ長さで全ての要素が等しい場合
+	}
+
+	// 現在のインデックスの値を比較
+	if a[idx] != b[idx] {
+		return a[idx] < b[idx]
+	}
+
+	// 同じ値の場合、次のインデックスを再帰的に比較
+	return th.compareSlices(i, j, idx+1)
 }
 
 type MyTupleHeap[T constraints.Ordered] struct {
