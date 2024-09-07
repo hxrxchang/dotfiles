@@ -444,6 +444,12 @@ func zeroIndexedSlice(origin []int) []int {
 	return slice2
 }
 
+func copySlice[T any](original []T) []T {
+	newSlice := make([]T, len(original))
+	copy(newSlice, original)
+	return newSlice
+}
+
 // 2次元スライスのコピー
 func copy2DSlice(original [][]int) [][]int {
     newSlice := make([][]int, len(original))
