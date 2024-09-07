@@ -241,6 +241,15 @@ func (s *Set[V]) Values() []V {
 func (s *Set[V]) Size() int {
 	return len(s.values)
 }
+func(s *Set[V]) Pop() V {
+	if len(s.values) == 0 {
+		panic("set is empty")
+	}
+	v := s.Values()[0]
+	s.Remove(v)
+	return v
+}
+
 
 // sorted set
 type SortedSet[T comparator.Ordered] struct {
