@@ -277,6 +277,21 @@ func (s *SortedSet[T]) lowerBound(v T) *set.SetIterator[T] {
 func (s *SortedSet[T]) upperBound(v T) *set.SetIterator[T] {
 	return s.values.UpperBound(v)
 }
+// 指定した値未満の最大の値を取得
+func (s *SortedSet[T]) lessThan(v T) (*T, error) {
+	if s.lowerBound(v).Prev().IsValid() {
+		res := s.lowerBound(v).Prev().Value()
+		return &res, nil
+	}
+	if s.values.Last().IsValid() {
+		res := s.values.Last().Value()
+		if res < v {
+			return &res, nil
+		}
+		return nil, fmt.Errorf("not found")
+	}
+	return nil, fmt.Errorf("not found")
+}
 
 // multiset
 func newMultiset[T comparator.Ordered]() *set.MultiSet[T] {
