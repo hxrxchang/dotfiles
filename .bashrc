@@ -143,9 +143,15 @@ acgen() {
     fi
     acc new $1
     directories=$(find $1 -maxdepth 1 -type d ! -name $1)
-    for dir in $directories; do
-       cp ~/dotfiles/atcoder/template.$2 $dir/main.$2
-    done
+    if [ "$CODESPACES" = "true" ]; then
+        for dir in $directories; do
+            cp  /workspaces/atcoder/template/main.$1 $dir/main.$2
+        done
+    else
+        for dir in $directories; do
+            cp  ~/ghq/github.com/hxrxchang/atcoder/template/main.$1 $dir/main.$2
+        done
+    fi
 }
 
 act() {
@@ -201,7 +207,12 @@ acaddl() {
         echo "Please specify the language"
         return
     fi
-    cp ~/dotfiles/atcoder/template.$1 ./main.$1
+    if [ "$CODESPACES" = "true" ]; then
+        cp /workspaces/atcoder/template/main.$1 ./main.$1
+    else
+        cp ~/ghq/github.com/hxrxchang/atcoder/template/main.$1 ./main.$1
+    fi
+
 }
 
 cargo_compete_new() {
