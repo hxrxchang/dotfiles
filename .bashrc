@@ -145,11 +145,11 @@ acgen() {
     directories=$(find $1 -maxdepth 1 -type d ! -name $1)
     if [ "$CODESPACES" = "true" ]; then
         for dir in $directories; do
-            cp  /workspaces/atcoder/template/main.$1 $dir/main.$2
+            cp  /workspaces/atcoder/template/main.$2 $dir/main.$2
         done
     else
         for dir in $directories; do
-            cp  ~/ghq/github.com/hxrxchang/atcoder/template/main.$1 $dir/main.$2
+            cp  ~/ghq/github.com/hxrxchang/atcoder/template/main.$2 $dir/main.$2
         done
     fi
 }
