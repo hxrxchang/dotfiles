@@ -42,6 +42,11 @@ export PATH="$PATH:~/Library/Application Support/Coursier/bin"
 export EDITOR=vim
 eval "$(direnv hook bash)"
 
+# 環境変数読み込み
+if [ -f ~/dotfiles/.env.private.sh ]; then
+    source ~/dotfiles/.env.private.sh
+fi
+
 export DISABLE_SPRING=1
 
 export PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
