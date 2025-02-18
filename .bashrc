@@ -133,7 +133,7 @@ brew_cleanup() {
 }
 
 memo() {
-    touch ~/memo/$(date "+%Y%m%d%H%M%S").md
+    cm
     code ~/memo/
 }
 
