@@ -36,3 +36,5 @@ alias ccn="cargo_compete_new"
 alias cct="cargo_compete_test"
 alias ccs="cargo_compete_submit"
 alias rr="evcxr"
+
+alias kc="kubectl"
