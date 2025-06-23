@@ -2,3 +2,4 @@
 .idea/
 .tmp/*
 graphql.config.yml
+.claude/settings.local.json
