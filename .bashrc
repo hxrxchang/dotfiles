@@ -1,15 +1,14 @@
 export LANG=ja_JP.UTF-8
 export LC_CTYPE=ja_JP.UTF-8
 
-# terminal間で履歴共有
-function share_history {
-    history -a
-    history -c
-    history -r
-}
-PROMPT_COMMAND='share_history'
-shopt -u histappend
+# 履歴設定
+export HISTFILE=~/.bash_history
 export HISTSIZE=2000
+export HISTFILESIZE=2000
+shopt -s histappend
+
+# 履歴共有と保存を両立
+PROMPT_COMMAND='history -a; history -c; history -r; starship_precmd'
 
 export PATH="/usr/local/bin:$PATH"
 export PATH="$HOME/bin:$PATH"
