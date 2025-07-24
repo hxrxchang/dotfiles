@@ -232,6 +232,36 @@ cargo_compete_submit() {
     cargo compete submit $1
 }
 
+cargo_compete_update() {
+  if [ $# -ne 1 ]; then
+    echo "Usage: cargo_compete_update <problem>" >&2
+    return 1
+  fi
+
+  problem="$1"
+  src_path="./src/bin/${problem}.rs"
+  main_path="../src/main.rs"
+
+  # カレントディレクトリが cargo-compete で生成された問題ディレクトリかどうかを判定
+  if [ ! -d "./src/bin" ]; then
+    echo "Error: カレントディレクトリが cargo-compete により生成されたディレクトリではないようです（./src/bin が存在しません）" >&2
+    return 1
+  fi
+
+  if [ ! -f "$src_path" ]; then
+    echo "Error: 問題ファイル '${src_path}' が存在しません" >&2
+    return 1
+  fi
+
+  if [ ! -f "$main_path" ]; then
+    echo "Error: main.rs の出力先 '${main_path}' が存在しません" >&2
+    return 1
+  fi
+
+  cp "$src_path" "$main_path"
+  echo "✅ ${src_path} を ${main_path} にコピーしました。"
+}
+
 peco_search_repo () {
   local selected_dir=$(ghq list -p | peco --prompt="repositories >" --query "$LBUFFER")
   if [ -n "$selected_dir" ]; then
@@ -245,3 +275,5 @@ source ~/dotfiles/alias.sh
 source "$HOME/.rye/env"
 
 [ -f "/Users/haray/.ghcup/env" ] && source "$HOME/.ghcup/env" # ghcup-env
+
+alias claude="/Users/haray/.claude/local/claude"
