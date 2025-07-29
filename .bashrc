@@ -33,9 +33,7 @@ export GOPATH=$HOME/go
 export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
 
 export PATH="~/.nimble/bin:$PATH"
-
 export PATH="$PATH:~/Library/Application Support/Coursier/bin"
-
 
 # for direnv
 export EDITOR=vim
@@ -274,6 +272,4 @@ source ~/dotfiles/alias.sh
 . "$HOME/.cargo/env" # https://www.rust-lang.org/ja/tools/install
 source "$HOME/.rye/env"
 
-[ -f "/Users/haray/.ghcup/env" ] && source "$HOME/.ghcup/env" # ghcup-env
-
-alias claude="/Users/haray/.claude/local/claude"
+[ -f "$HOME/.ghcup/env" ] && source "$HOME/.ghcup/env" # ghcup-env
