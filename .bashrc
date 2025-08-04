@@ -273,3 +273,13 @@ source ~/dotfiles/alias.sh
 source "$HOME/.rye/env"
 
 [ -f "$HOME/.ghcup/env" ] && source "$HOME/.ghcup/env" # ghcup-env
+
+# pnpm
+export PNPM_HOME="/Users/haray/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+
+eval "$(~/.local/bin/mise activate bash)"
