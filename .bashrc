@@ -217,20 +217,20 @@ acaddl() {
 
 }
 
-cargo_compete_new() {
+cc_new() {
     cargo compete new $1
     cargo member include $1
 }
 
-cargo_compete_test() {
+cc_test() {
     cargo compete test $1
 }
 
-cargo_compete_submit() {
+cc_submit() {
     cargo compete submit $1
 }
 
-cargo_compete_update() {
+cc_update() {
   if [ $# -ne 1 ]; then
     echo "Usage: cargo_compete_update <problem>" >&2
     return 1
@@ -258,6 +258,17 @@ cargo_compete_update() {
 
   cp "$src_path" "$main_path"
   echo "✅ ${src_path} を ${main_path} にコピーしました。"
+}
+
+cc_create_test_dir() {
+    for file in testcases/*.yml; do
+        # ファイル名だけ取り出す（拡張子除く）
+        name=$(basename "$file" .yml)
+        # ディレクトリ作成
+        mkdir -p "testcases/$name/in"
+        mkdir -p "testcases/$name/out"
+        echo "Created directories for problem: $name"
+    done
 }
 
 peco_search_repo () {
