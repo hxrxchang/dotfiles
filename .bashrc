@@ -260,6 +260,19 @@ cc_update() {
   echo "✅ ${src_path} を ${main_path} にコピーしました。"
 }
 
+cc_run() {
+    if [ $# -ne 1 ]; then
+        echo "Usage: $0 <a|b|c|...>"
+        exit 1
+    fi
+
+    # カレントディレクトリ名
+    DIR_NAME=$(basename "$PWD")
+
+    # cargo run 実行
+    cargo run --bin "${DIR_NAME}-$1"
+}
+
 cc_create_test_dir() {
     for file in testcases/*.yml; do
         # ファイル名だけ取り出す（拡張子除く）

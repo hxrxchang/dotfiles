@@ -36,6 +36,7 @@ alias ccn="cc_new"
 alias cct="cc_test"
 alias ccs="cc_submit"
 alias ccu="cc_update"
+alias ccr="cc_run"
 alias rr="evcxr"
 
 alias kc="kubectl"
